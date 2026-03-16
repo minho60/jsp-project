@@ -1,0 +1,92 @@
+@layer components {
+  /* 모달 오버레이 (배경) */
+  [data-modal-content] {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color-shadow-2);
+    backdrop-filter: blur(4px);
+    opacity: 0;
+    visibility: hidden;
+    transition:
+      opacity 0.2s ease,
+      visibility 0.2s ease;
+    z-index: 2000;
+
+    &.show {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+
+  /* 모달 박스 */
+  .modal-box {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-2);
+    width: 100%;
+    max-width: calc(var(--spacing-6) * 24);
+    max-height: 90vh;
+    margin: var(--spacing-4);
+    box-shadow: 0 4px 24px var(--color-shadow-2);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+
+    & .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: var(--spacing-4) var(--spacing-5);
+      border-bottom: 1px solid var(--color-border);
+
+      & h3 {
+        margin: 0;
+        font-size: var(--text-lg);
+        font-weight: 600;
+      }
+    }
+
+    & .modal-body {
+      padding: var(--spacing-5);
+      flex: 1;
+      overflow-y: auto;
+    }
+
+    & .modal-footer {
+      display: flex;
+      justify-content: flex-end;
+      gap: var(--spacing-3);
+      padding: var(--spacing-4) var(--spacing-5);
+      /* border-top: 1px solid var(--color-border); */
+      /* background-color: var(--color-muted); */
+    }
+
+    /* 폼 요소 */
+    .form-label {
+      display: block;
+      font-size: var(--text-sm);
+      font-weight: 500;
+      margin-bottom: var(--spacing-2);
+      color: var(--color-foreground);
+    }
+
+    .form-group {
+      margin-bottom: var(--spacing-4);
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    textarea.input {
+      width: 100%;
+      resize: vertical;
+      min-height: 160px;
+      font-family: inherit;
+      line-height: 1.6;
+    }
+  }
+}

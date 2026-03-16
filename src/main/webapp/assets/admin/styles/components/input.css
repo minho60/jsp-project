@@ -1,0 +1,44 @@
+@layer components {
+  .input {
+    padding: var(--spacing-1) var(--spacing-3);
+    /* width: 100%; */
+    height: var(--spacing-9);
+    color: var(--color-foreground);
+    background: var(--color-input);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-1);
+    font-size: var(--text-sm);
+    box-shadow: 0 1px 2px var(--color-shadow-1);
+    outline: none;
+
+    &::placeholder {
+      color: var(--color-muted-foreground);
+    }
+
+    &:focus-visible {
+      border-color: var(--color-focus);
+      box-shadow: 0 0 0 3px var(--color-shadow-2);
+    }
+
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+      pointer-events: none;
+    }
+
+    &.sm {
+      height: var(--spacing-8);
+      padding-inline: var(--spacing-3);
+    }
+
+    &.md {
+      height: var(--spacing-9);
+      padding-inline: var(--spacing-4);
+    }
+
+    &.lg {
+      height: var(--spacing-10);
+      padding-inline: var(--spacing-5);
+    }
+  }
+}

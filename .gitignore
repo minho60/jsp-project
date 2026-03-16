@@ -1,0 +1,6 @@
+/build/
+local.env
+
+# macOS
+.DS_Store
+/.apt_generated/

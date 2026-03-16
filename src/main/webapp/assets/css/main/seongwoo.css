@@ -1,0 +1,241 @@
+@charset "utf-8";
+
+.seongwoo body {
+    font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+
+    margin: 0;
+    padding: 0;
+}
+
+.seongwoo ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.seongwoo {
+    width: 1520px;
+    margin: 0px auto;
+}
+.seongwoo .top-image {
+    display: flex;
+    justify-content: center;
+    margin-top: 60px;
+    width: 100%;
+}
+.seongwoo .left-slider {
+    width: 990px;
+    height: 650px;
+    overflow: hidden;
+    border-radius: 30px;
+    display: flex;
+    margin-right: 20px;
+}
+.seongwoo .left-slider img {
+    width: 990px;
+    height: 650px;
+}
+.seongwoo .right-slider {
+    width: 440px;
+    height: 650px;
+    overflow: hidden;
+    border-radius: 30px;
+    display: flex;
+}
+.seongwoo .right-slider img {
+    width: 440px;
+    height: 650px;
+}
+/* 슬라이드 */
+.seongwoo .left-slides , .right-slides{
+    display: flex;
+    width: calc(100% * 5);
+    height: 100%;
+    animation-name:seongwooSlideRoll;
+    animation-duration: 16s;
+    animation-timing-function: linear;
+    animation-delay: .5s;
+    animation-iteration-count: infinite;
+    animation-fill-mode: forwards;
+   }
+@keyframes seongwooSlideRoll {
+     0% {transform: translateX(0);}
+    1.66% {transform: translateX(-20%);}
+    25.33% {transform: translateX(-20%);}
+    26.98% {transform: translateX(-40%);}
+    49.64% {transform: translateX(-40%);}
+    51.30% {transform: translateX(-60%);}
+    76.96% {transform: translateX(-60%);}
+    78.0% {transform: translateX(-80%);}
+    100% {transform: translateX(-80%);}
+}
+.seongwoo .right-slides {
+    display: flex;
+}    
+/* main-icon */
+.seongwoo .main-menu-list {
+    background: transparent;
+    display: flex;
+}
+.seongwoo .main-icon-box img{
+    width: 168px;
+    height: 168px;
+}
+/*기존이미지 변경시 js 사용하던지 div로 태그변경해서 해볼것*/
+
+.seongwoo .main-recommend img , .main-gift-set img{
+    width: 58px;
+    height: 58px;
+}
+.seongwoo .sub-gift-list li:nth-child(1){
+    width: 535px;
+    height: 666px;
+}
+.seongwoo h1 , .seongwoo p {
+    text-align: center;
+}
+.seongwoo .sub-menu-list {
+    display: flex;
+}
+.seongwoo .sub-menu-wrap {
+    display: flex;
+}
+.seongwoo .sub-menu-left-list li {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+    height: 58px;
+    color:#000;
+    border-radius: 50px;
+    font-size: 18px;
+    font-weight: 700;
+    justify-content: center;
+    padding-left: 40px;
+    outline: 1px solid #bbb;
+} 
+.seongwoo .sub-menu-left-list li:nth-child(1) {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+    height: 58px;
+    background: #a68bff;
+    color:#fff;
+    border-radius: 50px;
+    font-size: 13px;
+    font-weight: 700;
+    justify-content: center;
+    padding-left: 40px;
+}
+
+
+.seongwoo .sub-left-icon-box img {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    width: 48px;
+    height: 48px;
+}
+.seongwoo .sub-icon-box img{
+    width: 290px;
+    height: 360px;
+}
+
+/* chat */
+.seongwoo .sub-menu-wrap {
+    display: flex;
+    align-items: flex-start;
+    gap: 40px; /* 좌우간 간격 */
+}
+
+
+/* 사이드메뉴 end */
+.seongwoo .menu-list  {
+    width: 50px;
+    height: 50px;
+}
+.seongwoo .menu-list li:nth-of-type(1)   {
+    top: 10px;
+    left: 20px;
+}
+.seongwoo .menu-list li:nth-of-type(2) .icon-box img  {
+    top: 10px;
+    left: 90px;
+}
+.seongwoo .menu-list li:nth-of-type(3) .icon-box img  {
+    top: 10px;
+    left: 170px;
+}
+.seongwoo .menu-list li:nth-of-type(4) .icon-box img  {
+    top: 90px;
+    left: 20px;
+}
+.seongwoo .menu-list li:nth-of-type(5) .icon-box img  {
+    top: 90px;
+    left: 90px;
+}
+.seongwoo .menu-list li:nth-of-type(6) .icon-box img  {
+    top: 170px;
+    left: 20px;
+    width: 100px;
+    height: 58px;
+}
+
+
+.seongwoo .sub-gift-list {
+    display: flex;
+}
+
+
+.seongwoo .a_to_z {
+    display: flex;
+    gap: 20px;
+}
+.seongwoo .a_to_z img {
+    margin-bottom: 20px;
+}
+
+.seongwoo .notice  {
+    width: 695px;
+    height: 110px;
+    margin-bottom: 20px;
+    text-align: left;
+    background-color: #e83828;
+    color:#fff;
+    border-radius: 20px;
+    padding:30px 0 37px 60px
+}
+.seongwoo .faq  {
+    width: 695px;
+    height: 110px;
+    margin-bottom: 20px;
+    background-color: #ffcf48;
+    color:#000;
+    border-radius: 20px;
+    padding:30px 0 37px 60px
+}
+
+
+/* 왼쪽 메뉴 영역 */
+.seongwoo .sub-menu-left {
+    width: 260px;
+}
+
+/* ul은 높이를 고정하면 안됨 */
+.seongwoo .sub-menu-left-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+/* 선물세트 첫번째 이미지만 크기를변동하기
+    아마도 별도로 div로 해야될것 같음.
+    슬라이드 좀더 연구해보기
+    공지사항등 좀더 정리하고/ 버튼색깔변경
+    좀더 하단 이미지및 추가로 이미지찾아 보완
+    하단 플렉스까지 됬고..원기회복쪽 정리
+    일단은 동일하게 하고 첫번째만 예외적용할것
+    
+    가로폭수정하고 푸터와 간격조정
+    이미지배경(노란)없애는 방법?
+    공지사항 클릭버튼 해결?
+ */

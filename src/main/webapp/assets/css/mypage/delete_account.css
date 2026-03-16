@@ -1,0 +1,140 @@
+@charset "utf-8";
+main * {
+    box-sizing: border-box;
+}
+main a {
+    text-decoration: none;
+}
+main .main-container {
+    display: flex;
+}
+main .left-title{
+    margin-left: 250px;
+}
+main .left-title p:hover{
+    color:#E83828;
+    font-weight: 700;
+}
+main .left-title h3::before{
+        content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 30px;        
+    height: 2px;
+    background-color: #bbb;
+}
+main .left-title  h3{
+    position: relative;
+    padding-top: 16px;  
+    text-align: left;
+}
+main .cancel-guide-content {
+    height: 310px;
+    width: 1020px;
+    padding: 8px;
+    border:1px solid #ccc;
+ }
+main .right-container {
+   
+    margin-left: 90px;
+}
+main form {
+    display: grid;
+    grid-template-columns: 150px 300px 200px; /* 3열 */
+    height: 150px;
+    width: 1020px;
+    padding: 10px 20px;
+    border-top:1px solid #ccc;
+    border-bottom:1px solid #ccc;
+
+}
+main  form label{
+    display: flex;
+
+}
+main .user-info {
+    row-gap: 20px;
+}
+
+/* input checkbox */
+main .sub-title {
+    text-align: center;
+}
+main .user-psw {
+    width: 1020px;
+    height: 50px;
+    padding-left: 70px;
+    line-height: 50px;
+    border-top: 2px solid #bbb
+}
+
+main [type = "password"]{
+    margin-left: 53px;
+    width: 180px;
+    height: 30px;
+}
+
+main [type="checkbox"] {
+    appearance: none;
+    /* 기존 모습 숨기기 */
+    position: relative;
+    width: 20px;
+    height: 20px;
+    margin: 6px 12px;
+    border: 1px solid gray;
+    border-radius: 0%;
+    /* brdr */
+}
+
+        /* 체크됐을 때 표시 (체크박스 안에 체크 기호 넣기) */
+main [type="checkbox"]:checked::after {
+    content: "";
+    position: absolute;
+    top: -6px;
+    left: 6px;
+    width: 8px;
+    height: 16px;
+    border: solid black;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+main .last-comment {
+    padding: 10px 60px;
+    display: flex;
+    gap: 48px;
+    border-bottom:1px solid #ccc;
+}
+main .bottom-btn {
+    text-align: center;
+    height: 40px;
+}
+main .bottom-btn a {
+    display: inline-block;
+    text-decoration: none;
+    width: 100px;
+    height: 50px;
+    line-height: 50px;
+    color:#000;
+    border:1px solid #000;
+}
+main .bottom-btn a:last-child {
+    background-color: red;
+    color:#fff;
+    margin-left: 5px;
+    margin-top: 5px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

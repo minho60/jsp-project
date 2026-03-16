@@ -1,0 +1,93 @@
+@charset "utf-8";
+
+* {
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: #fff;
+}
+
+.container {
+    width: 800px;
+    margin: 40px auto;
+    border-top: 2px solid #000;
+}
+
+h1 {
+    font-size: 22px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ccc;
+}
+
+.section-title {
+    margin: 20px 0 10px;
+    font-weight: bold;
+}
+
+.info-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.info-table th {
+    width: 180px;
+    text-align: left;
+    padding: 15px;
+    background: #f9f9f9;
+    border-top: 1px solid #ddd;
+    color: #333;
+}
+
+.info-table th::before {
+    content: "• ";
+    color: red;
+}
+
+.info-table td {
+    padding: 15px;
+    border-top: 1px solid #ddd;
+}
+
+.readonly {
+    padding-top: 8px;
+}
+
+input {
+    width: 300px;
+    padding: 8px;
+    border: 1px solid #ccc;
+}
+
+.password-box div {
+    margin-bottom: 10px;
+}
+
+.password-box label {
+    display: inline-block;
+    width: 130px;
+}
+
+.btn-box {
+    margin-top: 30px;
+    text-align: center;
+}
+.btn-area {
+    margin-top: 30px;
+    text-align: center;
+}
+
+button {
+    width: 100px;
+    height: 40px;
+    border: 1px solid #ccc;
+    cursor: pointer;
+}
+
+.btn-confirm {
+    background: #f44336;
+    color: white;
+    border: none;
+    margin-left: 10px;
+}

@@ -1,0 +1,30 @@
+.popover {
+  position: absolute;
+  display: none;
+  flex-direction: column;
+  padding: var(--spacing-1);
+  min-width: 140px;
+  border-radius: var(--radius-1);
+  border: 1px solid var(--color-border);
+  background: var(--color-popover);
+  color: var(--color-popover-foreground);
+  box-shadow: 0 1px 3px var(--color-shadow-2);
+  z-index: 1000;
+
+  &.show {
+    display: flex;
+  }
+
+  & button,
+  & .popover-item {
+    justify-content: left;
+    width: 100%;
+  }
+
+  & .popover-divider {
+    width: 100%;
+    height: 1px;
+    margin-block: var(--spacing-1);
+    background: var(--color-border);
+  }
+}

@@ -1,0 +1,175 @@
+@charset "utf-8";
+/* 폰트어썸 라이브러리 */
+@import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css);
+
+/* 초기화(reset) */
+* {
+    box-sizing: border-box;
+}
+html, body {
+    font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+    font-size: 16px;
+}
+
+body, div,
+h1, h2, h3, p, span,
+ul, li, i, img, dl, dd, dt {
+    margin: 0;
+    padding: 0;
+}
+ul, li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+img {
+    vertical-align: middle;
+    object-fit: cover;
+}
+
+* {
+    box-sizing: border-box;
+}
+:root {
+    scroll-behavior: smooth;
+}
+
+
+main {
+    padding-top: 40px;
+    padding-bottom: 60px;
+    background: rgb(246, 246, 246);
+}
+#success .inner {
+    max-width: 1260px;
+    margin: 0 auto;
+}
+#success hr {
+    border: none;
+    height: 1px;
+    background-color: #e5e5e5;
+}
+
+#success .inner,
+#success .inner a {
+    color: #686767;
+    font-size: 0.75rem;
+}
+
+#success .product {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-top: 40px;
+}
+#success .product p:first-of-type {
+    margin-bottom: 30px;
+    font-size: 1.6rem;
+    font-weight: 500;
+    color: #222;
+}
+#success .product p:last-of-type {
+    font-size: 1rem;
+    font-weight: 350;
+    color: #D1D1D1;
+    display: flex;
+    align-items: baseline;
+    
+}
+#success .product p span {
+    color: #E65548;
+    font-weight: bold;
+}
+#success .product img {
+    margin: 0 16px;
+}
+#success .clear {
+    width: 100%;
+    padding: 56px 0;
+    margin-bottom: 10px;
+    text-align: center;
+    background: #fff;
+    border-radius: 16px;
+    border: 2px solid #D6D6D6;
+}
+#success .clear p {
+    margin-top: 24px;
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: #222;
+}
+#success .clear p span {
+    font-size: 0.8rem;
+    font-weight: 300;
+    color: #555;
+}
+#success .order_info p {
+    text-align: center;
+    font-size: 1.3rem;
+    font-weight: 500;
+    color: #222;
+    padding-top: 50px; 
+}
+#success .table {
+    width: 100%;
+    background: #fff;
+    border-radius: 16px;
+    margin-top: 10px;
+    border: 2px solid #D6D6D6;
+
+}
+#success .info {
+    width: 90%;
+    position: relative;
+    margin: 50px;
+    display: table;
+    border-top: 1px solid #cecece;
+}
+#success .info tr {
+    display: flex;
+    flex-wrap: wrap;
+    background: #fff;
+    text-align: left;
+    vertical-align: middle;
+    border-bottom: 1px solid #cecece;
+    
+}
+#success .info th {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    vertical-align: middle;
+    background-color: #F6F6F6;
+    width: 180px;
+    color: #999;
+}
+#success .info td {
+    margin-left: 30px;
+    padding: 20px 0;
+    vertical-align: middle;
+}
+
+#success .info th p,
+#success .info span {
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: #333;
+}
+#success .info p {
+    padding: 2px;
+}
+#success .btn {
+    text-align: center;
+    margin: 80px 0 35px;
+}
+#success .btn a {
+    padding: 20px 90px;
+    color: #fff;
+    background: #E65548;
+    border-radius: 15px;
+    font-size: 1.2rem;
+    font-weight: bold;
+}

@@ -1,0 +1,136 @@
+/* 주문 내역 페이지 스타일 */
+
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--spacing-6);
+}
+
+/* 탭 컨테이너 하단 여백 */
+.tab-container {
+  margin-bottom: var(--spacing-6);
+}
+
+/* 컨트롤 행 */
+.controls-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--spacing-4);
+  margin-bottom: var(--spacing-4);
+  flex-wrap: wrap;
+}
+
+.filter-group {
+  display: flex;
+  gap: var(--spacing-3);
+}
+
+.controls-row .input {
+  width: 200px;
+}
+
+@media (max-width: 768px) {
+  .controls-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .filter-group {
+    flex-wrap: wrap;
+  }
+
+  .controls-row .input {
+    width: 100%;
+  }
+}
+
+.table-container {
+  position: relative;
+}
+
+.table-cell {
+  height: var(--spacing-10);
+
+  & .badge {
+    font-size: var(--text-sm);
+  }
+}
+
+.table-cell-wrapper {
+  padding-inline: var(--spacing-3);
+}
+
+.table-cell:last-child {
+  width: var(--spacing-10);
+}
+
+/* 주문명 셀 */
+.order-name-cell {
+  max-width: 280px;
+}
+
+.order-name {
+  font-weight: 500;
+  color: var(--color-foreground);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* 가격 셀 */
+.price-cell {
+  font-weight: 500;
+  font-feature-settings: "tnum";
+}
+
+/* 수량 셀 */
+.quantity-cell {
+  font-feature-settings: "tnum";
+}
+
+/* 빈 상태 */
+.empty-state {
+  text-align: center;
+  padding: var(--spacing-10) var(--spacing-6);
+  color: var(--color-muted-foreground);
+}
+
+.empty-state-icon {
+  width: 48px;
+  height: 48px;
+  margin: 0 auto var(--spacing-4);
+  opacity: 0.5;
+}
+
+.empty-state-title {
+  font-weight: 500;
+  color: var(--color-foreground);
+  margin-bottom: var(--spacing-2);
+}
+
+.empty-state-description {
+  font-size: var(--text-sm);
+}
+
+/* 페이지네이션 */
+.pagination-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: var(--spacing-4);
+}
+
+.pagination-controls {
+  display: flex;
+  gap: var(--spacing-3);
+}
+
+@media (max-width: 768px) {
+  .pagination-container {
+    flex-direction: column-reverse;
+    align-items: center;
+    gap: var(--spacing-3);
+  }
+}

@@ -1,0 +1,96 @@
+@charset "UTF-8";
+@import url(/assets/css/service/service_common.css);
+
+#event .event-box {
+    width: 1020px;
+    text-align: center;
+
+}
+
+#event .event-tit h2 {
+    font-size: 32px;
+    margin-bottom: 60px;
+}
+
+#event .event-tit .event-category ul {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+#event .event-tit .event-category .tab-btn{
+    font-size: 20px;
+    width: 340px;
+    padding: 23px 0;
+    border: 1px solid #bebebe;
+    border-radius: 15px 15px 0 0;
+    background: #F7F7F7;
+}
+
+#event .event-tit .event-category .tab-btn:hover {
+    background: #E83828;
+    color: #fff;
+    cursor: pointer;
+}
+
+#event .event-tit .event-category .tab-btn.active {
+    background: #E83828;
+    color: #fff;
+}
+
+
+#event .event-cont ul li{
+     margin: 50px 0;
+}
+/* 이벤트 카드 */
+#event .event-card {
+    margin: 30px;
+    padding: 15px;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+
+}
+
+#event .event-img img {
+    height: 180px;
+    width: 500px;
+    object-fit: contain;
+    border: 1px solid #c2c2c2;
+    background: #F7F7F7;
+    border-radius: 6px;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1);
+    transition: 0.2s ease;
+}
+
+#event .event-img img:hover {
+    transform: scale(1.05);
+    box-shadow: 15px 15px 10px rgba(0, 0, 0, 0.1);
+}
+
+
+#event .event-info {
+    font-size: 15px;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    justify-content: center;
+}
+
+#event .event-info .event-tit:hover{
+    text-decoration: underline;
+}
+
+#event .event-info .event-tit strong img {
+    margin-left: 10px;
+}
+
+
+
+
+/* 페이지네이션 */
+
+#event .service-pagination {
+    width: 100%;
+
+}

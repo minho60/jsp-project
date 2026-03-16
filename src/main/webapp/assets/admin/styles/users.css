@@ -1,0 +1,35 @@
+.table-container {
+  position: relative;
+}
+
+.table-cell {
+  height: var(--spacing-10);
+}
+
+.table-cell-wrapper {
+  padding-inline: var(--spacing-3);
+}
+
+.table-cell:last-child {
+  width: var(--spacing-10);
+}
+
+.pagination-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: var(--spacing-4);
+}
+
+.pagination-controls {
+  display: flex;
+  gap: var(--spacing-3);
+}
+
+@media (max-width: 768px) {
+  .pagination-container {
+    flex-direction: column-reverse;
+    align-items: center;
+    gap: var(--spacing-3);
+  }
+}

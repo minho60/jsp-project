@@ -1,0 +1,74 @@
+@charset "utf-8";
+/* 폰트어썸 라이브러리 */
+@import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css);
+
+/* 초기화(reset) */
+* {
+    box-sizing: border-box;
+}
+html, body {
+    font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+    font-size: 16px;
+}
+
+body, div,
+h1, h2, h3, p, span,
+ul, li, i, img, dl, dd, dt {
+    margin: 0;
+    padding: 0;
+}
+ul, li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+img {
+    vertical-align: middle;
+    object-fit: cover;
+}
+
+* {
+    box-sizing: border-box;
+}
+:root {
+    scroll-behavior: smooth;
+}
+
+
+main {
+    padding-top: 40px;
+    padding-bottom: 60px;
+}
+#agreement .inner, #guide .inner,
+#agreement .inner a, #guide .inner a {
+    max-width: 1260px;
+    margin: 0 auto;
+    color: #686767;
+    font-size: 0.75rem;
+}
+#agreement hr,
+#guide hr {
+    border: none;
+    height: 1px;
+    background-color: #e5e5e5;
+}
+#agreement .service_agreement, 
+#guide .service_guide {
+    width: 100%;
+    margin-top: 40px;
+    font-size: 0.8rem;
+    font-weight: 300;
+    color: #333;
+    line-height: 1.4;
+}
+#agreement h2,
+#guide h2 {
+  margin-top: 40px;
+  padding-bottom: 30px;
+  border-bottom: 1px solid #686767;
+  font-size: 1.5rem;
+  color: #222;
+}

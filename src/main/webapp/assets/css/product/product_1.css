@@ -1,0 +1,327 @@
+@charset "utf-8";
+/* 폰트어썸 라이브러리 */
+@import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css);
+
+/* 초기화(reset) */
+* {
+    box-sizing: border-box;
+}
+html, body {
+    font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+    font-size: 16px;
+}
+
+body, div,
+h1, h2, h3, p, span,
+ul, li, i, img {
+    margin: 0;
+    padding: 0;
+}
+ul, li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+img {
+    vertical-align: middle;
+    object-fit: cover;
+}
+
+body{
+	margin-top: 100px;
+	line-height: 1.6
+}
+button:hover {
+    cursor: pointer;
+}
+
+/* list */
+#product {
+    color: #333;
+}
+#product hr {
+    border: none;
+    height: 1px;
+    background-color: #e5e5e5;
+}
+#product .list_top a {
+    color: #686767;
+    font-size: 0.75rem;
+}
+#product .list {
+    position: relative;
+    max-width: 1260px;
+    margin: 50px auto;
+}
+#product .top_inner {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 50px;
+}
+#product .top_inner img {
+    height: 645px;
+    padding: 0 50px;
+    border: 1px solid #e5e5e5;
+}
+
+#product .title {
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+    margin-bottom: 40px;
+}
+#product .title h2 {
+    font-size: 1.4rem;
+}
+#product .title button {
+    background: #fff;
+    border: 1px solid #e5e5e5;
+    padding: 0 15px;
+}
+#product .sns {
+    display: none;
+    position: absolute;
+    top: 125px;
+    right: 0;
+    width: 350px;
+    height: 180px;
+    background: #fff;
+    border: 1px solid #999;
+    border-radius: 5px;
+}
+#product .sns_top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 20px;
+    background: #f4f4f4;
+    font-weight: bold;
+    border-radius: 5px;
+}
+#product .sns_top i {
+    transform: scale(1.5);
+    color:#666;
+}
+#product .sns_top i:hover {
+    cursor: pointer;
+}
+#product .sns_mid {
+    display: flex;
+    justify-content: space-evenly;
+    padding-top: 20px;    
+    font-size: 0.8rem;
+    text-align: center;
+}
+#product .sns_mid a {
+    display: flex; 
+    flex-direction: column; 
+    align-items: center;
+}
+#product .sns_mid i {
+    transform: scale(3);
+    margin: 13px;
+}
+#product .sns_mid a:last-of-type i {
+color: #4C69BA;
+}
+#product .sns_bottom {
+    text-align: center;
+    padding: 10px 0;
+}
+#product .sns_bottom input {
+    border: 1px solid #666;
+    border-radius: 2px;
+    padding: 5px 0 5px 10px;
+    font-size: 0.8rem;
+    height: 30px;
+}
+#product .sns_bottom button {
+    border: none;
+    border-radius: 2px;
+    padding: 3px 10px;
+    height: 30px;
+    font-size: 0.7rem;
+    color: #fff;
+    background: #e83828;
+
+}
+
+
+
+
+#product .item_info {
+    font-size: 0.9rem;
+}
+#product .item_info dl {
+    display: flex;
+
+}
+#product .item_info dl span {
+    font-size: 1.4rem;
+    font-weight: bold;
+}
+#product .item_info dt {
+    width: 130px;
+    color: #666;
+}
+#product .item_info dd {
+    flex-grow: 1;
+    margin-left: 0;
+    color: #222;
+}
+#product .amount_inner ul {
+    display: flex;
+    height: 100%;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 40px;
+}
+#product .amount_inner {
+    background: #F7F7F7;
+    width: 100%;
+    height: 80px;
+    border-bottom: 2px solid #999;
+    padding: 0px 20px;
+    font-size: 1.2rem;
+}
+#product .amount button {
+    width: 30px;
+    height: 30px;
+    color: #222;
+    border: 1px solid #bdbdbd;
+    border-radius: 5px;
+}
+#product .amount .number {
+    width: 60px;
+    height: 30px;
+    color: #222;
+    border: 1px solid #bdbdbd;
+    text-align: center;
+    border-radius: 5px;
+}
+#product .info_text {
+    margin: 20px 0;
+    text-align: right;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border-bottom: 1px solid #999;
+}
+#product .info_text p span {
+    color: #e83828;
+}
+#product .total-container {
+    font-size: 1.4rem;
+}
+#product .btn {
+    display: grid;
+    grid-template-columns: 180px 180px auto;
+    gap: 10px; 
+    margin-top: 20px;
+}
+#product .btn button, 
+#product .btn a {
+    font-size: 1rem;
+    background: #fff;
+    padding: 10px 20px;
+    text-align: center;
+    border: 1px solid #bdbdbd;
+    border-radius: 5px;
+    color: #222;
+    font-weight: bold;
+}
+#product .btn a {
+    background: #e83828;
+    color: #fff;
+    border: none;
+}
+#product .btn a:hover {
+    background: rgb(240, 36, 18);
+    color: #fff;
+    border: none;
+}
+
+
+/* bottom */
+#product .bottom {
+    margin-top: 30px;
+    border-top: 1px solid #e5e5e5;
+}
+/* 탭메뉴 */
+#product ul.tabs{
+    display: grid;
+    grid-template-columns: repeat(5, auto);
+    text-align: center;
+    margin-top: 50px;
+    padding-top: 50px;
+}
+#product ul.tabs li{
+    background: none;
+    color: #333;
+    display: inline-block;
+    padding: 20px 70px;
+	cursor: pointer;
+    border-top: 1px solid #e5e5e5;
+    border-right: 1px solid #e5e5e5;
+     background: #fff;
+}
+#product ul.tabs li:first-of-type {
+    border-left: 1px solid #e5e5e5;
+}
+#product ul.tabs li.current{
+    padding: 20px 70px;
+    text-decoration: underline;
+    font-weight: bold;
+    text-underline-offset: 4px;
+    border: 2px solid #8b8b8b;
+    border-bottom: 2px solid #fff;
+}
+#product .tab-content{
+	display: none;
+    margin-bottom: 150px;
+}
+#product .tab-content.current {
+    display: inherit;
+}
+
+/* tab 내용 */
+#product .bottom {
+    white-space: pre-line;
+}
+#product .detail {
+    text-align: center;
+}
+#product .tab-content h3 {
+    font-size: 1.5rem;
+    text-align: center;
+}
+#product .tab-content img {
+    margin-top: 30px;
+}
+#product .tab-content .inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding-bottom: 30px;
+    border-bottom: 1px solid #8b8b8b;
+}
+#product .tab-content .review,
+#product .tab-content .qna {
+    border-bottom: 1px solid #8b8b8b;
+    text-align: center;
+    padding: 20px 0;
+    margin-bottom: 20px;
+}
+#product .tab-content .review p,
+#product .tab-content .qna p {
+    margin-top: 20px;
+}
+#product .tab-content .inner .btn a:first-of-type {
+    background: #fff;
+    border: 1px solid #bdbdbd;
+    color: #222;
+}
+

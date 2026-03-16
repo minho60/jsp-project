@@ -1,0 +1,299 @@
+@charset "utf-8";
+main * {
+    box-sizing: border-box;
+}
+main h1 {
+    border-bottom: 1px solid #aaa;
+}
+main .right-container,
+main .main-container,
+main .right-top-title {
+    display: flex;
+}
+main .left-title{
+    margin-left: 250px;
+}
+main .left-title p:hover{
+    color:#E83828;
+    font-weight: 700;
+}
+main .left-title h3::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 30px;        
+    height: 2px;
+    background-color: #bbb;
+}
+main .left-title  h3{
+    position: relative;
+    padding-top: 16px;  
+    text-align: left;
+}
+
+main .right-container .right-top-title, main .right-middle-title{
+    height: 190px;
+    width: 1020px;
+    justify-content: space-between;
+    border:1px solid #ccc;
+}
+
+main .right-top-title{
+    width: 310px;
+    height: 190px;
+    padding: 30px 50px ;
+    text-align: center;
+}
+main .right-top-title div>p {
+    display: flex;
+    flex-direction: column;
+    align-items: center;      
+    justify-content: center;  
+}
+main .right-top-title .cu,
+main .right-top-title .mi {
+    padding-right: 90px;
+    border-right:1px solid #aaa;
+}
+main .right-top-title div span:nth-last-child(2),
+main .middle-title span{
+    font-size: 28px;
+    font-weight: 400;
+     color:#E83828;
+}
+
+main .right-container {
+    margin: 0 auto;
+}
+
+main .right-container {
+    flex-direction: column;
+    
+}
+/* table */
+main .middle-title p {
+    text-align: center;
+    height: 10px;
+    line-height: 10px;
+    padding: 10px;
+}
+main .middle-content th  {
+  text-align: center;
+  padding: 12px 10px;
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+}
+main .middle-content tr td{
+   padding: 80px;
+    text-align: center;
+}
+main .middle-content th, .middle-content td {
+  text-align: start;
+  padding: 12px 10px;
+  border-bottom: 1px solid #ccc;
+}
+/* 1224수정부분 */
+main .grade {
+    line-height: 1px;
+}
+/* 등급혜택 */
+/* 전체 기준 */
+.grade-wrap {
+    position: relative;
+    display: inline-block;
+    height: 38px;
+    top: 116px;
+    left: -200px;
+   
+}
+
+/* 버튼 */
+.grade-btn {
+    background: #fff;
+    border: 1px solid #ccc;
+    padding: 6px 10px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.grade-btn .arrow {
+    margin-left: 4px;
+}
+
+/* 팝업 */
+.grade-popup {
+    position: absolute;
+    top: 100%;          /* 버튼 아래 */
+    left: 0px;           /* 우측 정렬 */
+    margin-top: -5px;
+    width: 300px;
+    background: #fff;
+    border: 1px solid #ccc;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    display: none;
+    z-index: 100;
+}
+.grade-popup.active {
+    display: block;
+}
+
+
+
+/* 팝업 헤더 */
+.popup-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 20px;
+    margin-bottom: -30px;
+    /* border-bottom: 1px solid #eee; */
+}
+
+.popup-header .close {
+    background: none;
+    border: none;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+/* 내용 */
+.popup-content {
+    list-style: none;
+    
+    padding: 10px;
+    margin: 0;
+}
+
+.popup-content .title {
+    width: 80px;
+    font-weight: 600;
+}
+
+.popup-content .desc {
+    font-size: 13px;
+    line-height: 10px;
+    color: #333;
+}
+
+.popup-content .row {
+    display: flex;
+    margin-bottom: 8px;
+    border-bottom:1px solid #ccc;
+}
+.popup-content .rowl{
+    display: flex;
+    margin-bottom: 8px;
+    border: none;
+}
+
+
+/* 등급혜택 끝 */
+
+
+/* 주문조회/배송조회시작 */
+
+
+.order-search {
+  max-width: 1100px;
+  margin: 30px auto;
+  font-family: "Noto Sans KR", sans-serif;
+}
+
+.order-search .title {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+/* 조회 영역 박스 */
+.search-box {
+  display: flex;
+  width: 1020px;
+  align-items: center;
+  gap: 8px;
+  padding: 15px;
+  border: 1px solid #ccc;
+  
+}
+
+/* 조회기간 텍스트 */
+.search-box .label {
+  font-weight: 500;
+  margin-right: 5px;
+}
+
+/* 기간 버튼 그룹 */
+.btn-group {
+  display: flex;
+}
+
+.btn-group button {
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  background: #fff;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.btn-group button:not(:last-child) {
+  border-right: none;
+}
+
+.btn-group button.active {
+  background: #999;
+  color: #fff;
+}
+
+/* 날짜 input */
+.search-box input[type="date"] {
+  padding: 6px 8px;
+  border: 1px solid #ccc;
+  font-size: 13px;
+}
+
+/* ~ 표시 */
+.search-box .tilde {
+  margin: 0 4px;
+}
+
+/* 조회 버튼 */
+.search-btn {
+  margin-left: 0;
+  padding: 8px 18px;
+  background: #e83828;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.search-btn:hover {
+  background: #e83828;
+}
+
+/* 주문조회/배송조회끝 */
+/* 탭버튼 */
+.claim-tabs {
+  display: flex;
+  border-bottom: 1px solid #ccc;
+}
+
+.claim-tabs .tab {
+  padding: 12px 20px;
+  margin-right: 6px;
+  border: 1px solid #ccc;
+  border-bottom: none;
+  background: #f5f5f5;
+  color: #333;
+  text-decoration: none;
+}
+
+.claim-tabs .tab.active {
+  background: #fff;
+  /* height: 70px; */
+  transform: scale(1.18);
+  font-weight: bold;
+  border-bottom: 1px solid #fff;
+}
+

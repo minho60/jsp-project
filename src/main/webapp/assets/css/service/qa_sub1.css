@@ -1,0 +1,98 @@
+@charset "UTF-8";
+@import url(/assets/css/service/service_common.css);
+
+#secret-main {
+    width: 1020px;
+}
+
+
+#secret-main .qa-tit {
+    padding-bottom: 30px;
+    font-size: 20px;
+}
+
+#secret-main .secret-tit {
+    padding: 20px 10px;
+    border-top: 1px solid #000;
+    background: #dfdfdf;
+}
+
+#secret-main .secret-txt {
+    display: flex;
+    flex-direction: column;
+    min-height: 80vh;
+
+}
+
+
+#secret-main .secret-name {
+    display: flex; 
+    justify-content: space-between;                                
+    padding: 15px 10px;
+    border-top: 1px solid #bbbbbb;
+    border-bottom: 1px solid #bbb;
+    align-items: flex-end;      
+}
+#secret-main .secret-name div{
+    display: flex;
+    gap: 20px;
+}
+
+
+#secret-main .secret-body {
+    flex: 1;
+    padding: 20px 10px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #bbb;
+
+}
+
+#secret-main .secret-body .secret-q {
+    margin-bottom: 150px;
+}
+
+#secret-main .secret-body .secret-q p::before {
+    content: "";
+    width: 18px;
+    height: 18px;
+    display: inline-block;
+    background-image: url("/assets/img/service/icon_qna_q.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
+#secret-main .secret-body .secret-a p::before {
+    content: "";
+    width: 18px;
+    height: 18px;
+    display: inline-block;
+    background-image: url("/assets/img/service/icon_qna_a.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
+
+
+
+#secret-main .secret-btn {
+    margin-top: auto;
+    align-self: flex-end;
+    gap: 8px;
+}
+
+#secret-main .secret-btn button {
+    background: #E83828;
+    color: #fff;
+    font-weight: bold;
+    border: none;
+    padding: 5px 10px;
+}
+
+#secret-main .secret-btn button:hover {
+    background: #8a8a8a;
+
+}

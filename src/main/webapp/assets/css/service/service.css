@@ -1,0 +1,120 @@
+#service {
+    position: relative;
+    width: 1260px;
+    height: 1000px;
+    margin: 0 323px;
+    /* background: yellow; */
+    font-size: 18px;
+
+
+}
+
+#service .service-t {
+    display: flex;
+    justify-content: space-evenly;
+    padding-top: 60px;
+}
+
+#service .service-t a {
+    border-radius: 10px;
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        filter 0.25s ease;
+}
+
+
+#service .service-t a:nth-child(1) {
+    background: #E83828;
+    color: #FFFFFF;
+    position: relative;
+    background-image: url("/assets/img/main/main_title_icon_gift.png");
+    background-repeat: no-repeat;
+    background-size: 120px auto;
+    background-position: 10% 40%;
+}
+
+#service .service-t a:nth-child(2) {
+    background: #FFCF4B;
+    color: #000;
+    position: relative;
+    background-image: url("/assets/img/main/main_title_icon_recommend.png");
+    background-repeat: no-repeat;
+    background-size: 120px auto;
+    background-position: 10% 40%;
+}
+
+#service .service-t a:nth-child(3) {
+    background: #CCDEFF;
+    color: #030B39;
+    position: relative;
+    background-image: url("/assets/img/service/faq-list.png");
+    background-repeat: no-repeat;
+    background-size: 110px auto;
+    background-position: 10% 40%;
+}
+
+
+#service .service-t a:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.18);
+    filter: brightness(1.04);
+}
+
+#service .service-box {
+    width: 400px;
+    height: 350px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 이벤트 */
+#service .event-link {
+    display: flex;
+    flex-direction: column;
+    margin: 60px 10px;
+    text-align: center;
+    width: 1240px;
+    height: 200px;
+    border-radius: 10px;
+    justify-content: center;
+    background: #FEEADF;
+    position: relative;
+    background-image: url("/assets/img/service/faq-list2.svg");
+    background-repeat: no-repeat;
+    background-size: 110px auto;
+    background-position: 30% 40%;
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        filter 0.25s ease;
+}
+
+#service .event-link:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.18);
+    filter: brightness(1.02);
+}
+
+#service .side-box-b {
+    display: flex;
+    gap: 30px;
+    justify-content: space-evenly;
+}
+
+
+#service .side-info {
+    display: flex;
+    flex-direction: column;
+    padding-top: 20px;
+    border-top: 2px solid #e83828;
+    color: #000000;
+    font-size: 16px;
+}
+
+#service .side-box-b strong {
+    color: #e83828;
+    font-size: 16px;
+}

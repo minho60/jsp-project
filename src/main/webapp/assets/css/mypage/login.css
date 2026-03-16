@@ -1,0 +1,90 @@
+
+@charset "utf-8";
+
+/* 전체 영역 */
+main h1 {
+     border:none;
+}
+
+.login-wrap {
+    margin:0 auto;
+    width: 500px;
+}
+
+/* 로그인 박스 */
+.login-box {
+    border: 1px solid #aaa;
+    padding: 40px 60px;
+}
+
+/* 입력 + 버튼 영역 */
+.login-form {
+    display: flex;
+    gap:20px;
+}
+
+.input-area input[type="text"],
+.input-area input[type="password"] {
+    width: 220px;
+    padding: 14px;
+    margin-bottom: 12px;
+    border: 1px solid #aaa;
+}
+
+/* 아이디 저장 */
+.save-id {
+    font-size: 16px;
+    color: #787878;
+    display: flex;
+    align-items: center;
+    gap:12px;
+
+}
+input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  accent-color: #aaa;
+}
+
+/* 로그인 버튼 */
+.btn-login {
+    width: 150px;
+    height: 100px;
+    background: #e83828;
+    color: #fff;
+    border: none;
+    font-size: 20px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.btn-login:hover {
+    background: #c52f21;
+}
+
+/* 에러 메시지 */
+.login-error {
+    margin-top: 16px;
+    padding: 10px 14px;
+    color: #e83828;
+    font-size: 14px;
+    background: #fff5f5;
+    border: 1px solid #fdd;
+    border-radius: 4px;
+}
+
+/* 하단 링크 */
+.login-links {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.login-links a {
+    color: #555;
+    font-size: 14px;
+    text-decoration: underline;
+}
+
+.login-links a:hover {
+    color: #e83828;
+}

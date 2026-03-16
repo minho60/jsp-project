@@ -1,0 +1,105 @@
+name: Deploy to Oracle Cloud (dodram-jsp) [DISABLED]
+
+# 비활성화됨 - ROOT 배포 워크플로우(deploy-root.yml)로 대체
+# 수동 실행만 가능
+on:
+  workflow_dispatch:
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. 소스코드 체크아웃
+      - name: Checkout source
+        uses: actions/checkout@v4
+
+      # 2. JDK 21 설정
+      - name: Set up JDK 21
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+
+      # 3. Tomcat 9용 Servlet API 다운로드 — 컴파일에 필요
+      - name: Download Servlet API (Tomcat 9 / javax)
+        run: |
+          mkdir -p /tmp/tomcat-lib
+          curl -sL "https://repo1.maven.org/maven2/javax/servlet/javax.servlet-api/4.0.1/javax.servlet-api-4.0.1.jar" \
+            -o /tmp/tomcat-lib/javax.servlet-api-4.0.1.jar
+          curl -sL "https://repo1.maven.org/maven2/javax/servlet/jsp/javax.servlet.jsp-api/2.3.3/javax.servlet.jsp-api-2.3.3.jar" \
+            -o /tmp/tomcat-lib/javax.servlet.jsp-api-2.3.3.jar
+
+      # 4. Java 소스 컴파일
+      - name: Compile Java sources
+        run: |
+          mkdir -p build/classes
+
+          # classpath 구성: WEB-INF/lib JARs + Tomcat API
+          CP=$(find src/main/webapp/WEB-INF/lib -name '*.jar' | tr '\n' ':')
+          CP="${CP}$(find /tmp/tomcat-lib -name '*.jar' | tr '\n' ':')"
+
+          # 모든 .java 파일 컴파일
+          find src/main/java -name '*.java' > /tmp/sources.txt
+          javac -encoding UTF-8 \
+                -d build/classes \
+                -cp "$CP" \
+                @/tmp/sources.txt
+
+      # 5. WAR 파일 생성
+      - name: Package WAR
+        run: |
+          WAR_DIR=/tmp/war-staging
+          APP_NAME=dodram-jsp
+
+          # webapp 내용 복사
+          mkdir -p "$WAR_DIR"
+          cp -r src/main/webapp/* "$WAR_DIR/"
+
+          # 컴파일된 클래스 복사
+          mkdir -p "$WAR_DIR/WEB-INF/classes"
+          cp -r build/classes/* "$WAR_DIR/WEB-INF/classes/"
+
+          # WAR 생성
+          cd "$WAR_DIR"
+          jar -cf /tmp/${APP_NAME}.war .
+
+      # 6. SSH 키 설정
+      - name: Setup SSH key
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.OCI_SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh-keyscan -H ${{ secrets.OCI_HOST }} >> ~/.ssh/known_hosts 2>/dev/null
+
+      # 7. WAR 파일 전송
+      - name: Upload WAR to server
+        run: |
+          scp -o StrictHostKeyChecking=no \
+            /tmp/dodram-jsp.war \
+            ${{ secrets.OCI_USER }}@${{ secrets.OCI_HOST }}:/tmp/dodram-jsp.war
+
+      # 8. 서버에서 배포 실행
+      - name: Deploy on server
+        run: |
+          ssh -o StrictHostKeyChecking=no \
+            ${{ secrets.OCI_USER }}@${{ secrets.OCI_HOST }} << 'DEPLOY_SCRIPT'
+
+            # --- 환경변수 설정 (필요시) ---
+            TOMCAT_HOME="${TOMCAT_HOME:-/opt/tomcat}"
+            APP_NAME="dodram-jsp"
+
+            echo "=== Deploying $APP_NAME ==="
+
+            # 기존 배포 제거
+            sudo rm -rf "$TOMCAT_HOME/webapps/${APP_NAME}"
+            sudo rm -f  "$TOMCAT_HOME/webapps/${APP_NAME}.war"
+
+            # 새 WAR 배포
+            sudo cp /tmp/${APP_NAME}.war "$TOMCAT_HOME/webapps/"
+
+            # Tomcat 재시작
+            sudo systemctl restart tomcat
+
+            echo "=== Deploy complete ==="
+          DEPLOY_SCRIPT

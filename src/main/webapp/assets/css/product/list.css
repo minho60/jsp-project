@@ -1,0 +1,174 @@
+@charset "utf-8";
+/* 폰트어썸 라이브러리 */
+@import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css);
+
+/* 초기화(reset) */
+* {
+    box-sizing: border-box;
+}
+html, body {
+    font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+    font-size: 16px;
+}
+
+body, div,
+h1, h2, h3, p, span,
+ul, li, i, img {
+    margin: 0;
+    padding: 0;
+}
+ul, li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+img {
+    vertical-align: middle;
+    object-fit: cover;
+}
+
+body{
+	margin-top: 100px;
+	line-height: 1.6
+}
+.container{
+	width: 800px;
+	margin: 0 auto;
+}
+
+/* list */
+#product hr {
+    border: none;
+    height: 1px;
+    background-color: #e5e5e5;
+}
+#product .list {
+    max-width: 1260px;
+    margin: 50px auto;
+}
+
+#product .top p,
+#product .top a {
+    color: #686767;
+    font-size: 0.75rem;
+}
+#product .top span {
+    color: #222;  
+}
+#product .container {
+    width: 100%;
+    margin-top: 50px;
+}
+#product .container>h2,
+#product .container>ul  {
+    text-align: center;
+}
+#product .container h2 {
+    margin: 80px 0 30px 0;
+    letter-spacing: 4px;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #222;
+} 
+#product .container p {
+    margin: 20px 0;
+    color: #222;
+} 
+
+#product ul.tabs{
+	margin: 0px;
+	padding-bottom: 20px;
+	list-style: none;
+}
+#product ul.tabs li{
+    background: none;
+    color: #222;
+    display: inline-block;
+    padding: 10px 25px;
+	cursor: pointer;
+}
+#product ul.tabs li.current{
+	color: #fff;
+    background: #e83828;
+    padding: 25px;
+    border-radius: 50px;
+    text-decoration: underline;
+    font-weight: bold;
+    text-underline-offset: 4px;
+}
+#product .tab-content{
+	display: none;
+    /* background: #000; */
+    padding: 30px 10px;
+    margin-bottom: 150px;
+}
+#product .tab-content.current {
+    display: inherit;
+}
+
+#product img {
+    object-fit: contain;
+}
+#product .pork_container,
+#product .beef_container, 
+#product .sale_container,
+#product .best_container,
+#product .simple_container,
+#product .giftset_container,
+#product .brand_container,
+#product .new_container {
+    margin-top: 50px;
+    width: 100%;
+    justify-content: center;
+    display: grid;
+    /* grid-template-columns: repeat(4, 1fr);  */
+    grid-template-columns: repeat(auto-fit, 250px);
+    gap: 30px; 
+    
+}
+#product .pork_container .preview,
+#product .beef_container .preview,
+#product .sale_container .preview,
+#product .best_container .preview,
+#product .simple_container .preview,
+#product .giftset_container .preview,
+#product .brand_container .preview,
+#product .new_container .preview {
+    /* width: 100%; */
+    width: 240px;
+    overflow: hidden;
+    height: 300px;
+    border-radius: 15px 15px 0 0;
+    background-color: #fff;
+    overflow: hidden;
+}
+#product .meat {
+    width: 240px;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+}
+#product .meat_text {
+    margin-top: 10px;
+    text-align: left;
+    padding: 0 5px;
+}
+#product .meat_text h3 {
+    font-size: 0.9rem;
+    font-weight: 300;
+    padding: 0 1px;
+    
+}
+#product .meat .price {
+    font-size: 0.9rem;
+    font-weight: bold;
+    padding: 0 5px;
+}
+#product .price span {
+    font-size: 0.65rem;
+    font-weight: 300;
+    color: #666;
+    padding: 0 5px;
+}

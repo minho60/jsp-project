@@ -1,0 +1,176 @@
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css");
+
+/* 기본 배경색, 폰트 설정 */
+* {
+  font-family: "Pretendard", -apple-system, BlinkMacSystemFont, system-ui,
+    Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR",
+    "Malgun Gothic", sans-serif;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+}
+
+body {
+  --color-black: #000;
+  --color-complete: #2781e8;
+  --color-warning: #e83828;
+  margin: 0;
+  height: 100vh;
+  background-color: #f6f6f6;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  height: 100%;
+}
+
+.payment-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  max-width: 450px;
+  box-sizing: border-box;
+  padding: 26px 24px;
+  background: #fff;
+  overflow: hidden;
+  user-select: none;
+}
+
+#payment-status {
+  margin: 130px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  color: var(--color-complete);
+}
+
+#payment-status.complete {
+  color: var(--color-complete);
+}
+
+#payment-status.cancel {
+  color: var(--color-warning);
+}
+
+#status-icon {
+  display: flex;
+  /* transition: color 0.5s ease; */
+  transition: color 0.45s ease, transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.25s ease;
+  will-change: transform, opacity;
+}
+
+#status-icon.icon-exit {
+  transform: translateY(-4px) scale(0.94);
+  opacity: 0;
+}
+
+#status-icon.icon-enter {
+  transform: translateY(0) scale(1);
+  opacity: 1;
+}
+
+.status-info {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 32px;
+  text-align: center;
+}
+
+#status-title {
+  color: var(--color-complete);
+  font-weight: 700;
+  transition: color 0.3s ease;
+}
+
+#status-title.complete {
+  color: var(--color-complete);
+}
+
+#status-title.cancel {
+  color: var(--color-warning);
+}
+
+.status-content {
+  color: var(--color-black);
+}
+
+.payment-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 26px;
+  color: #333;
+  line-height: 18px;
+  letter-spacing: -0.1px;
+}
+
+.payment-info .account {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--color-black);
+  font-style: normal;
+  font-weight: 500;
+  line-height: 18px;
+  letter-spacing: -0.1px;
+}
+
+.payment-info p {
+  margin: 0;
+}
+
+.payment-info p:last-child {
+  color: var(--color-black);
+  font-weight: 500;
+}
+
+#copy-btn:not(.clicked) {
+  cursor: pointer;
+}
+
+#copy-btn.clicked {
+  display: none;
+}
+
+#copy-btn + .check-mark {
+  display: none;
+}
+
+#copy-btn.clicked + .check-mark {
+  color: var(--color-complete);
+  display: block;
+}
+
+.payment-cancel-btn {
+  float: right;
+  cursor: pointer;
+  margin-left: auto;
+  padding: 0;
+  background: none;
+  border: none;
+  color: var(--767676, #767676);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 22px;
+  letter-spacing: -0.1px;
+  text-decoration-line: underline;
+}
+
+.payment-disappear {
+  position: relative;
+  display: inline-block;
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  pointer-events: none;
+}
+
+.payment-disappear.hide {
+  opacity: 0;
+  transform: translateY(10px);
+}

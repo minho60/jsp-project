@@ -1,0 +1,409 @@
+/* 대시보드 카드 트렌드 표시 */
+.card-trend {
+  font-size: var(--text-xs);
+  margin-top: var(--spacing-1);
+}
+
+.card-trend.trend-up {
+  color: var(--color-green-500);
+}
+
+.card-trend.trend-down {
+  color: var(--color-red-500);
+}
+
+.card-trend.trend-neutral {
+  color: var(--color-muted-foreground);
+}
+
+/* 차트 플레이스홀더 */
+.chart-placeholder {
+  min-height: 200px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.chart-bars {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-around;
+  width: 100%;
+  height: 180px;
+  gap: var(--spacing-2);
+}
+
+.chart-bar-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+  gap: var(--spacing-2);
+}
+
+.chart-bar {
+  width: 100%;
+  max-width: 40px;
+  height: var(--bar-height, 50%);
+  background: linear-gradient(
+    to top,
+    var(--color-blue-500),
+    var(--color-blue-400)
+  );
+  border-radius: var(--spacing-1) var(--spacing-1) 0 0;
+  transition: height 0.3s ease;
+}
+
+.chart-label {
+  font-size: var(--text-xs);
+  color: var(--color-muted-foreground);
+}
+
+/* 배송 현황 */
+/* 주간 매출 차트 카드 - 고정 높이 */
+.card:has(#weeklySalesChart) {
+  height: 316px;
+  flex: none;
+}
+
+/* 차트 요소의 width/height 트랜지션 제외 즉각적으로 리사이즈 반응이 안돼서 해둠 */
+.card:has(#weeklySalesChart) .card-content,
+.card:has(#weeklySalesChart) canvas,
+#weeklySalesChart {
+  transition-property: background-color, border, box-shadow, opacity;
+}
+
+/* 배송 현황 카드 - 같은 높이로 */
+.card:has(.shipping-status-wrapper) {
+  height: 316px;
+  flex: none;
+}
+
+.card:has(.shipping-status-wrapper) .card-content {
+  flex: 1;
+}
+
+.shipping-total {
+  font-size: var(--text-xs);
+  color: var(--color-muted-foreground);
+}
+
+.shipping-status-wrapper {
+  display: flex;
+  gap: var(--spacing-4);
+  align-items: center;
+}
+
+.shipping-chart {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  flex-shrink: 0;
+}
+
+.shipping-chart canvas {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.shipping-chart-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.chart-center-value {
+  font-size: var(--text-lg);
+  font-weight: 700;
+  color: var(--color-foreground);
+  line-height: 1;
+}
+
+.chart-center-label {
+  font-size: 10px;
+  color: var(--color-muted-foreground);
+}
+
+.status-list-progress {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-2);
+}
+
+.status-progress-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.status-progress-header {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2);
+}
+
+.status-progress-header .status-label {
+  flex: 1;
+  font-size: var(--text-xs);
+}
+
+.status-progress-header .status-value {
+  font-size: var(--text-xs);
+  font-weight: 600;
+}
+
+.status-progress-bar {
+  height: 4px;
+  background-color: var(--color-muted);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+}
+
+.status-progress-fill {
+  height: 100%;
+  border-radius: var(--radius-full);
+  transition: width 0.5s ease;
+}
+
+.status-progress-fill.preparing {
+  background-color: var(--color-amber-500);
+}
+
+.status-progress-fill.shipping {
+  background-color: var(--color-blue-500);
+}
+
+.status-progress-fill.delivered {
+  background-color: var(--color-green-500);
+}
+
+.status-progress-fill.cancelled {
+  background-color: var(--color-red-500);
+}
+
+.status-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-3);
+}
+
+.status-item {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-3);
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: var(--radius-full);
+  flex-shrink: 0;
+}
+
+.status-dot.preparing {
+  background-color: var(--color-amber-500);
+}
+
+.status-dot.shipping {
+  background-color: var(--color-blue-500);
+}
+
+.status-dot.delivered {
+  background-color: var(--color-green-500);
+}
+
+.status-dot.cancelled {
+  background-color: var(--color-red-500);
+}
+
+.status-label {
+  flex: 1;
+  font-size: var(--text-sm);
+  color: var(--color-muted-foreground);
+}
+
+.status-value {
+  font-size: var(--text-sm);
+  font-weight: 600;
+}
+
+/* 주문 목록 */
+.order-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-3);
+}
+
+.order-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--spacing-2) 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.order-item:last-child {
+  border-bottom: none;
+}
+
+.order-info {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-1);
+}
+
+.order-id {
+  font-size: var(--text-xs);
+  color: var(--color-muted-foreground);
+}
+
+.order-product {
+  font-size: var(--text-sm);
+  font-weight: 500;
+}
+
+.order-price {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
+/* 베스트셀러 */
+.bestseller-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-2);
+}
+
+.bestseller-item {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-3);
+  padding: var(--spacing-2) 0;
+}
+
+.bestseller-rank {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-primary);
+  color: var(--color-primary-foreground);
+  font-size: var(--text-xs);
+  font-weight: 700;
+  border-radius: var(--radius-full);
+  flex-shrink: 0;
+}
+
+.bestseller-item:nth-child(1) .bestseller-rank {
+  background-color: var(--color-amber-500);
+}
+
+.bestseller-item:nth-child(2) .bestseller-rank {
+  background-color: var(--color-gray-400);
+}
+
+.bestseller-item:nth-child(3) .bestseller-rank {
+  background-color: var(--color-orange-600);
+}
+
+.bestseller-name {
+  flex: 1;
+  font-size: var(--text-sm);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.bestseller-sales {
+  font-size: var(--text-xs);
+  color: var(--color-muted-foreground);
+  flex-shrink: 0;
+}
+
+/* 카드 헤더 링크 */
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card-link {
+  font-size: var(--text-xs);
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+.card-link:hover {
+  text-decoration: underline;
+}
+
+/* 하단 미니 카드 3개 (박스형) */
+.shipping-mini-cards {
+  margin-top: auto;
+  padding-top: 10px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--spacing-2);
+}
+
+.mini-stat-card {
+  background-color: var(--color-background);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-2);
+  padding: var(--spacing-4) var(--spacing-3);
+  min-height: 64px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+/* data-theme='light'일 때 배경을 살짝 어둡게, 'dark'일 때는 그대로 */
+:root[data-theme="light"] .mini-stat-card {
+  background-color: var(--color-gray-50);
+}
+:root[data-theme="dark"] .mini-stat-card {
+  background-color: var(--color-gray-800);
+}
+
+.mini-stat-label {
+  font-size: 11px;
+  color: var(--color-muted-foreground);
+}
+
+.mini-stat-content {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.mini-stat-value {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--color-foreground);
+}
+
+.mini-stat-trend {
+  font-size: 10px;
+}
+
+.mini-stat-trend.up {
+  color: var(--color-green-500);
+}
+
+.mini-stat-trend.down {
+  color: var(--color-red-500);
+}
+
+.mini-stat-trend.neutral {
+  color: var(--color-muted-foreground);
+}

@@ -1,0 +1,30 @@
+@layer components {
+  /* 페이지네이션 컨테이너 */
+  .pagination-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: var(--spacing-4);
+  }
+
+  /* 페이지네이션 정보 */
+  .pagination-info {
+    font-size: var(--text-sm);
+    color: var(--color-muted-foreground);
+  }
+
+  /* 페이지네이션 컨트롤 */
+  .pagination-controls {
+    display: flex;
+    gap: var(--spacing-1);
+  }
+
+  /* 반응형 */
+  @media (max-width: 768px) {
+    .pagination-container {
+      flex-direction: column-reverse;
+      align-items: center;
+      gap: var(--spacing-3);
+    }
+  }
+}

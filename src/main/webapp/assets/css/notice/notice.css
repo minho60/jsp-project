@@ -1,0 +1,122 @@
+
+
+main .notice-table a {
+  text-decoration: none;
+  color:#000;
+}
+main .notice-table a:hover {
+  text-decoration: underline;
+  text-decoration-color: #000;
+  text-decoration-thickness: 1.5px;
+}
+
+main .container  {
+  max-width: 1260px;
+  margin: 0 auto;
+}
+main .sub-container{
+  max-width: 1260px;
+  margin: 0 auto;
+}
+
+/* 제목 */
+main .title {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+/* 검색창 */
+main .search-box {
+  text-align: right;
+  margin-bottom: 20px;
+}
+
+main .search-box input[type="text"] {
+  padding: 6px 10px;
+  width: 250px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+main .search-box button {
+  padding: 6px 12px;
+  background-color: #666;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+/* 테이블 */
+main .notice-table ,main .notice-sub-table{
+  width: 100%;
+  border-collapse: collapse;
+}
+main .notice-table th:nth-of-type(1) {width: 71px;}
+main .notice-table th:nth-of-type(2) {width: 540px;}
+main .notice-table th:nth-of-type(3) {width: 162px;}
+main .notice-table th:nth-of-type(4) {width: 86px;}
+main .notice-table th:nth-of-type(5) {width: 207px;}
+
+/* .notice-sub-table td:nth-of-type(1) {width: 90%;} */
+
+main .notice-table th, main .notice-table td  {
+  text-align: center;
+  padding: 12px 10px;
+  border-bottom: 1px solid #ccc;
+}
+main .notice-sub-table th, main .notice-sub-table td{
+  text-align: start;
+  padding: 12px 10px;
+  border-bottom: 1px solid #ccc;
+}
+main .notice-sub-table td:last-child {
+  text-align: right;
+}
+main .notice-table th , main .notice-sub-table th{
+  font-weight: bold;
+  background-color: #e4e4e4;
+}
+
+/* 페이지네이션 */
+main .pagination {
+  margin-top: 10px;
+  text-align: center;
+}
+
+main .pagination a {
+  display: inline-block;
+  padding: 4px 10px;
+  margin: 0 4px;
+  color: #333;
+  text-decoration: none;
+  border: 1px solid #222;
+  border-radius: 50px;
+}
+
+main .pagination .active {
+  background-color: #bbb;
+}
+
+main .notice-image {
+  display:block;
+  margin: 0;
+}
+
+main p {
+  width: 100px;
+  height: 25px;
+  background-color: #666 ;
+  border:1px solid #000;
+  border-radius: 50px;
+  text-align: center;
+  padding-top: 5px;
+  margin-left: 1200px;
+}
+main p a{
+  text-decoration: none;
+  color:#fff;
+  
+}
+
+

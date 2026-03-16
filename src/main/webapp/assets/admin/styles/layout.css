@@ -1,0 +1,322 @@
+@layer layout {
+  :root {
+    --header-height: calc(var(--spacing-4) * 4);
+  }
+  :root:not(:has(header)) {
+    --header-height: 0px;
+  }
+
+  * {
+    box-sizing: border-box;
+    transition-property:
+      background-color, border, box-shadow, opacity, width, height;
+    transition-duration: 0.15s;
+  }
+
+  a {
+    color: var(--color-foreground);
+    text-decoration: none;
+  }
+
+  button {
+    font-family: inherit;
+  }
+
+  ul,
+  ol,
+  li {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin: 0;
+  }
+
+  html,
+  body {
+    height: 100%;
+  }
+
+  body {
+    margin: 0;
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family:
+      "Pretendard Variable",
+      Pretendard,
+      -apple-system,
+      BlinkMacSystemFont,
+      system-ui,
+      Roboto,
+      "Helvetica Neue",
+      "Segoe UI",
+      "Apple SD Gothic Neo",
+      "Noto Sans KR",
+      "Malgun Gothic",
+      "Apple Color Emoji",
+      "Segoe UI Emoji",
+      "Segoe UI Symbol",
+      sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow: hidden;
+  }
+
+  [class*="grid-cols-"] {
+    display: grid;
+    grid-template-columns: repeat(var(--cols), 1fr);
+  }
+
+  [class*="grid-colspan-"] {
+    grid-column: span var(--span) / span var(--span);
+  }
+
+  .grid-cols-1 {
+    --cols: 1;
+  }
+  .grid-cols-2 {
+    --cols: 2;
+  }
+  .grid-cols-3 {
+    --cols: 3;
+  }
+  .grid-cols-4 {
+    --cols: 4;
+  }
+  .grid-cols-5 {
+    --cols: 5;
+  }
+
+  .grid-colspan-1 {
+    --span: 1;
+  }
+  .grid-colspan-2 {
+    --span: 2;
+  }
+  .grid-colspan-3 {
+    --span: 3;
+  }
+  .grid-colspan-4 {
+    --span: 4;
+  }
+  .grid-colspan-5 {
+    --span: 5;
+  }
+
+  /* xl: 1124px 이하 */
+  @media (max-width: 1124px) {
+    .xl\:grid-cols-1 {
+      --cols: 1;
+    }
+    .xl\:grid-cols-2 {
+      --cols: 2;
+    }
+    .xl\:grid-cols-3 {
+      --cols: 3;
+    }
+    .xl\:grid-cols-4 {
+      --cols: 4;
+    }
+    .xl\:grid-cols-5 {
+      --cols: 5;
+    }
+
+    .xl\:grid-colspan-1 {
+      --span: 1;
+    }
+    .xl\:grid-colspan-2 {
+      --span: 2;
+    }
+    .xl\:grid-colspan-3 {
+      --span: 3;
+    }
+    .xl\:grid-colspan-4 {
+      --span: 4;
+    }
+    .xl\:grid-colspan-5 {
+      --span: 5;
+    }
+  }
+
+  /* lg: 1024px 이하 */
+  @media (max-width: 1024px) {
+    .lg\:grid-cols-1 {
+      --cols: 1;
+    }
+    .lg\:grid-cols-2 {
+      --cols: 2;
+    }
+    .lg\:grid-cols-3 {
+      --cols: 3;
+    }
+    .lg\:grid-cols-4 {
+      --cols: 4;
+    }
+    .lg\:grid-cols-5 {
+      --cols: 5;
+    }
+
+    .lg\:grid-colspan-1 {
+      --span: 1;
+    }
+    .lg\:grid-colspan-2 {
+      --span: 2;
+    }
+    .lg\:grid-colspan-3 {
+      --span: 3;
+    }
+    .lg\:grid-colspan-4 {
+      --span: 4;
+    }
+    .lg\:grid-colspan-5 {
+      --span: 5;
+    }
+  }
+
+  /* md: 768px 이하 */
+  @media (max-width: 768px) {
+    .md\:grid-cols-1 {
+      --cols: 1;
+    }
+    .md\:grid-cols-2 {
+      --cols: 2;
+    }
+    .md\:grid-cols-3 {
+      --cols: 3;
+    }
+    .md\:grid-cols-4 {
+      --cols: 4;
+    }
+    .md\:grid-cols-5 {
+      --cols: 5;
+    }
+
+    .md\:grid-colspan-1 {
+      --span: 1;
+    }
+    .md\:grid-colspan-2 {
+      --span: 2;
+    }
+    .md\:grid-colspan-3 {
+      --span: 3;
+    }
+    .md\:grid-colspan-4 {
+      --span: 4;
+    }
+    .md\:grid-colspan-5 {
+      --span: 5;
+    }
+  }
+
+  /* sm: 640px 이하 */
+  @media (max-width: 640px) {
+    .sm\:grid-cols-1 {
+      --cols: 1;
+    }
+    .sm\:grid-cols-2 {
+      --cols: 2;
+    }
+    .sm\:grid-cols-3 {
+      --cols: 3;
+    }
+    .sm\:grid-cols-4 {
+      --cols: 4;
+    }
+    .sm\:grid-cols-5 {
+      --cols: 5;
+    }
+
+    .sm\:grid-colspan-1 {
+      --span: 1;
+    }
+    .sm\:grid-colspan-2 {
+      --span: 2;
+    }
+    .sm\:grid-colspan-3 {
+      --span: 3;
+    }
+    .sm\:grid-colspan-4 {
+      --span: 4;
+    }
+    .sm\:grid-colspan-5 {
+      --span: 5;
+    }
+  }
+
+  .center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+  }
+
+  .admin-layout {
+    display: flex;
+    height: 100vh;
+  }
+
+  header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--spacing-4);
+    height: var(--header-height);
+  }
+
+  header .left {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-4);
+  }
+
+  .header-right {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-2);
+  }
+
+  /* 다크모드 토글 버튼 아이콘 */
+  #theme-toggle {
+    position: relative;
+  }
+
+  .theme-icon-light,
+  .theme-icon-dark {
+    transition: opacity 0.2s ease;
+  }
+
+  .theme-icon-dark {
+    display: none;
+  }
+
+  [data-theme="dark"] .theme-icon-light {
+    display: none;
+  }
+
+  [data-theme="dark"] .theme-icon-dark {
+    display: block;
+  }
+
+  main {
+    padding: var(--spacing-4);
+  }
+
+  .dashboard {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-4);
+  }
+
+  .dashboard-items {
+    flex: 1;
+    gap: var(--spacing-4);
+  }
+}

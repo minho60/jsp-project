@@ -1,0 +1,230 @@
+@layer components {
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-1);
+    padding-block: var(--spacing-0\.5);
+    padding-inline: var(--spacing-2);
+    min-width: var(--spacing-5);
+    border-radius: var(--radius-1);
+    border: 1px solid transparent;
+    font-size: var(--text-xs);
+    font-weight: 500;
+    white-space: nowrap;
+    overflow: hidden;
+
+    &.full {
+      padding-inline: var(--spacing-1);
+      border-radius: var(--radius-full);
+    }
+
+    /* 기본 변형 */
+    &.primary {
+      background-color: var(--color-primary);
+      color: var(--color-primary-foreground);
+    }
+
+    &.secondary {
+      background-color: var(--color-secondary);
+      color: var(--color-secondary-foreground);
+    }
+
+    &.outline {
+      background-color: var(--color-surface);
+      color: var(--color-primary);
+      border-color: var(--color-border);
+    }
+
+    /* 색상 변형 - 라이트모드 (theme.css 순서) */
+    &.gray {
+      background-color: var(--color-gray-100);
+      color: var(--color-gray-600);
+    }
+
+    &.red {
+      background-color: var(--color-red-100);
+      color: var(--color-red-700);
+    }
+
+    &.orange {
+      background-color: var(--color-orange-100);
+      color: var(--color-orange-700);
+    }
+
+    &.amber {
+      background-color: var(--color-amber-100);
+      color: var(--color-amber-700);
+    }
+
+    &.yellow {
+      background-color: var(--color-yellow-100);
+      color: var(--color-yellow-700);
+    }
+
+    &.lime {
+      background-color: var(--color-lime-100);
+      color: var(--color-lime-700);
+    }
+
+    &.green {
+      background-color: var(--color-green-100);
+      color: var(--color-green-700);
+    }
+
+    &.emerald {
+      background-color: var(--color-emerald-100);
+      color: var(--color-emerald-700);
+    }
+
+    &.teal {
+      background-color: var(--color-teal-100);
+      color: var(--color-teal-700);
+    }
+
+    &.cyan {
+      background-color: var(--color-cyan-100);
+      color: var(--color-cyan-700);
+    }
+
+    &.sky {
+      background-color: var(--color-sky-100);
+      color: var(--color-sky-700);
+    }
+
+    &.blue {
+      background-color: var(--color-blue-100);
+      color: var(--color-blue-700);
+    }
+
+    &.indigo {
+      background-color: var(--color-indigo-100);
+      color: var(--color-indigo-700);
+    }
+
+    &.violet {
+      background-color: var(--color-violet-100);
+      color: var(--color-violet-700);
+    }
+
+    &.purple {
+      background-color: var(--color-purple-100);
+      color: var(--color-purple-700);
+    }
+
+    &.fuchsia {
+      background-color: var(--color-fuchsia-100);
+      color: var(--color-fuchsia-700);
+    }
+
+    &.pink {
+      background-color: var(--color-pink-100);
+      color: var(--color-pink-700);
+    }
+
+    &.rose {
+      background-color: var(--color-rose-100);
+      color: var(--color-rose-700);
+    }
+
+    > svg {
+      width: var(--spacing-4);
+      height: var(--spacing-4);
+    }
+  }
+
+  /* 다크모드 색상 변형 (theme.css 순서) */
+  [data-theme="dark"] {
+    .badge {
+      &.gray {
+        background-color: var(--color-gray-800);
+        color: var(--color-gray-300);
+      }
+
+      &.red {
+        background-color: var(--color-red-950);
+        color: var(--color-red-200);
+      }
+
+      &.orange {
+        background-color: var(--color-orange-950);
+        color: var(--color-orange-200);
+      }
+
+      &.amber {
+        background-color: var(--color-amber-950);
+        color: var(--color-amber-200);
+      }
+
+      &.yellow {
+        background-color: var(--color-yellow-950);
+        color: var(--color-yellow-200);
+      }
+
+      &.lime {
+        background-color: var(--color-lime-950);
+        color: var(--color-lime-200);
+      }
+
+      &.green {
+        background-color: var(--color-green-950);
+        color: var(--color-green-200);
+      }
+
+      &.emerald {
+        background-color: var(--color-emerald-950);
+        color: var(--color-emerald-200);
+      }
+
+      &.teal {
+        background-color: var(--color-teal-950);
+        color: var(--color-teal-200);
+      }
+
+      &.cyan {
+        background-color: var(--color-cyan-950);
+        color: var(--color-cyan-200);
+      }
+
+      &.sky {
+        background-color: var(--color-sky-950);
+        color: var(--color-sky-200);
+      }
+
+      &.blue {
+        background-color: var(--color-blue-950);
+        color: var(--color-blue-200);
+      }
+
+      &.indigo {
+        background-color: var(--color-indigo-950);
+        color: var(--color-indigo-200);
+      }
+
+      &.violet {
+        background-color: var(--color-violet-950);
+        color: var(--color-violet-200);
+      }
+
+      &.purple {
+        background-color: var(--color-purple-950);
+        color: var(--color-purple-200);
+      }
+
+      &.fuchsia {
+        background-color: var(--color-fuchsia-950);
+        color: var(--color-fuchsia-200);
+      }
+
+      &.pink {
+        background-color: var(--color-pink-950);
+        color: var(--color-pink-200);
+      }
+
+      &.rose {
+        background-color: var(--color-rose-950);
+        color: var(--color-rose-200);
+      }
+    }
+  }
+}

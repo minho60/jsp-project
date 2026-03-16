@@ -1,0 +1,274 @@
+/* 상품 관리 페이지 스타일 */
+
+/* 이미지 업로드 컴포넌트 (재사용 가능) */
+@import url("./components/image-upload.css");
+
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--spacing-6);
+}
+
+.header-actions {
+  display: flex;
+  gap: var(--spacing-3);
+}
+
+/* 탭 컨테이너 하단 여백 */
+.tab-container {
+  margin-bottom: var(--spacing-6);
+}
+
+/* 컨트롤 행 */
+.controls-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--spacing-4);
+  margin-bottom: var(--spacing-4);
+  flex-wrap: wrap;
+}
+
+.filter-group {
+  display: flex;
+  gap: var(--spacing-3);
+}
+
+.controls-row .input {
+  width: 200px;
+}
+
+@media (max-width: 768px) {
+  .controls-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .filter-group {
+    flex-wrap: wrap;
+  }
+
+  .controls-row .input {
+    width: 100%;
+  }
+}
+
+.table-cell-wrapper {
+  padding-inline: var(--spacing-3);
+}
+
+.table-cell:last-child {
+  width: var(--spacing-10);
+}
+
+/* 상품명 셀 */
+.product-name-cell {
+  max-width: 280px;
+}
+
+.product-name {
+  font-weight: 500;
+  color: var(--color-foreground);
+  margin-bottom: var(--spacing-0.5);
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.product-description {
+  font-size: var(--text-xs);
+  color: var(--color-muted-foreground);
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* 가격 셀 */
+.price-cell {
+  font-weight: 500;
+  font-feature-settings: "tnum";
+}
+
+/* 카테고리 뱃지 아이콘 */
+.category-icon {
+  font-size: var(--text-sm);
+  line-height: 1;
+}
+
+/* 카테고리 그리드 */
+.categories-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: var(--spacing-4);
+}
+
+.category-card {
+  background: var(--color-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-2);
+  padding: var(--spacing-5);
+  transition: all 0.2s ease;
+}
+
+.category-card:hover {
+  border-color: var(--color-primary);
+  box-shadow: 0 4px 12px var(--color-shadow-1);
+}
+
+.category-card-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: var(--spacing-3);
+}
+
+.category-card-icon {
+  font-size: 2rem;
+  line-height: 1;
+}
+
+.category-card-actions {
+  display: flex;
+  gap: var(--spacing-1);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.category-card:hover .category-card-actions {
+  opacity: 1;
+}
+
+.category-card-name {
+  font-weight: 600;
+  font-size: var(--text-md);
+  color: var(--color-foreground);
+  margin-bottom: var(--spacing-1);
+}
+
+.category-card-description {
+  font-size: var(--text-sm);
+  color: var(--color-muted-foreground);
+  margin-bottom: var(--spacing-3);
+  line-height: 1.4;
+}
+
+.category-card-meta {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-3);
+  font-size: var(--text-xs);
+  color: var(--color-muted-foreground);
+}
+
+.category-product-count {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-1);
+}
+
+.category-product-count i {
+  width: 14px;
+  height: 14px;
+}
+
+/* 모달 사이즈 변형 */
+.modal-box.sm {
+  max-width: calc(var(--spacing-6) * 18);
+}
+
+/* 폼 추가 스타일 */
+.required {
+  color: var(--color-destructive-foreground);
+}
+
+.form-hint {
+  display: block;
+  font-size: var(--text-xs);
+  color: var(--color-muted-foreground);
+  margin-top: var(--spacing-1);
+}
+
+.form-col {
+  display: flex;
+  column-gap: var(--spacing-4);
+}
+
+/* 폼 구분선 */
+.form-divider {
+  height: 1px;
+  background: var(--color-border);
+  margin: var(--spacing-4) 0;
+}
+
+/* 테이블 이미지 컬럼 */
+.th-image {
+  width: 60px;
+}
+
+.product-thumbnail {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-1);
+  object-fit: cover;
+  background: var(--color-muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  margin-inline: var(--spacing-2);
+}
+
+.product-thumbnail img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.product-thumbnail-placeholder {
+  color: var(--color-muted-foreground);
+  opacity: 0.5;
+}
+
+/* 빈 상태 */
+.empty-state {
+  text-align: center;
+  padding: var(--spacing-10) var(--spacing-6);
+  color: var(--color-muted-foreground);
+}
+
+.empty-state-icon {
+  width: 48px;
+  height: 48px;
+  margin: 0 auto var(--spacing-4);
+  opacity: 0.5;
+}
+
+.empty-state-title {
+  font-weight: 500;
+  color: var(--color-foreground);
+  margin-bottom: var(--spacing-2);
+}
+
+.empty-state-description {
+  font-size: var(--text-sm);
+}
+
+@media (max-width: 768px) {
+  .pagination-container {
+    flex-direction: column-reverse;
+    align-items: center;
+    gap: var(--spacing-3);
+  }
+
+  .form-col {
+    flex-direction: column;
+    margin-bottom: var(--spacing-4);
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  .categories-grid {
+    grid-template-columns: 1fr;
+  }
+}

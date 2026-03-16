@@ -1,0 +1,222 @@
+@charset "utf-8";
+main * {
+    box-sizing: border-box;
+}
+main h1 {
+    border-bottom: 1px solid #aaa;
+}
+main .right-container,
+main .main-container,
+main .right-middle-title,
+main .inner-left,
+main .right-top-title,
+main .middle-title {
+    display: flex;
+}
+main .left-title{
+    margin-left: 250px;
+}
+main .left-title p:hover{
+    color:#E83828;
+    font-weight: 700;
+}
+main .left-title h3::before{
+        content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 30px;        
+    height: 2px;
+    background-color: #bbb;
+}
+main .left-title  h3{
+    position: relative;
+    padding-top: 16px;  
+    text-align: left;
+}
+
+main .right-container .right-top-title, main .right-middle-title{
+    height: 190px;
+    width: 1020px;
+    justify-content: space-between;
+    border:1px solid #ccc;
+}
+main .right-middle-title {
+    padding: 40px;
+    justify-content: space-evenly;
+}
+
+main .right-top-title{
+    width: 310px;
+    height: 190px;
+    padding: 30px 50px ;
+    text-align: center;
+}
+main .right-top-title div>p {
+    display: flex;
+    flex-direction: column;
+    align-items: center;      
+    justify-content: center;  
+}
+main .right-top-title .cu,
+main .right-top-title .mi {
+    padding-right: 90px;
+    border-right:1px solid #aaa;
+}
+main .right-top-title div span:nth-last-child(2) {
+    font-size: 28px;
+     color:#E83828;
+}
+
+main .right-container {
+    margin: 0 auto;
+}
+main .right-middle-title .inner-left{
+    border-right: 1px solid #aaa;
+    padding-right: 90px;
+}
+main .right-middle-title .inner-left span {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #aaa;
+    color: #fff;
+    text-align: center;
+    line-height: 50px; 
+}
+main .right-middle-title .inner-left  div img{
+    padding: 0px 20px;
+}
+main .right-middle-title .inner-right  li{
+    border-bottom: 1px solid #aaa;
+    padding: 4px 0 4px 0;
+    margin-left: 50px;
+}
+main .right-middle-title .inner-right  span{
+    display: inline-block;
+    margin-bottom: 5px;
+    padding-left: 50px;
+}
+main .right-container {
+    flex-direction: column;
+    
+}
+/* table */
+main .middle-title p {
+    text-align: center;
+    height: 10px;
+    line-height: 10px;
+    padding: 10px;
+}
+main .middle-content th  {
+  text-align: center;
+  padding: 12px 10px;
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+}
+main .middle-content tr td{
+   padding: 80px;
+    text-align: center;
+}
+main .middle-content th, .middle-content td {
+  text-align: start;
+  padding: 12px 10px;
+  border-bottom: 1px solid #ccc;
+}
+/* 1224수정부분 */
+main .grade {
+    line-height: 1px;
+}
+/* 등급혜택 */
+/* 전체 기준 */
+.grade-wrap {
+    position: relative;
+    display: inline-block;
+    height: 38px;
+    top: 116px;
+    left: -200px;
+   
+}
+
+/* 버튼 */
+.grade-btn {
+    background: #fff;
+    border: 1px solid #ccc;
+    padding: 6px 10px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.grade-btn .arrow {
+    margin-left: 4px;
+}
+
+/* 팝업 */
+.grade-popup {
+    position: absolute;
+    top: 100%;          /* 버튼 아래 */
+    left: 0px;           /* 우측 정렬 */
+    margin-top: -5px;
+    width: 300px;
+    background: #fff;
+    border: 1px solid #ccc;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    display: none;
+    z-index: 100;
+}
+.grade-popup.active {
+    display: block;
+}
+
+
+
+/* 팝업 헤더 */
+.popup-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 20px;
+    margin-bottom: -30px;
+    /* border-bottom: 1px solid #eee; */
+}
+
+.popup-header .close {
+    background: none;
+    border: none;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+/* 내용 */
+.popup-content {
+    list-style: none;
+    
+    padding: 10px;
+    margin: 0;
+}
+
+.popup-content .title {
+    width: 80px;
+    font-weight: 600;
+}
+
+.popup-content .desc {
+    font-size: 13px;
+    line-height: 10px;
+    color: #333;
+}
+
+.popup-content .row {
+    display: flex;
+    margin-bottom: 8px;
+    border-bottom:1px solid #ccc;
+}
+.popup-content .rowl{
+    display: flex;
+    margin-bottom: 8px;
+    border: none;
+}
+
+
+/* 등급혜택 끝 */

@@ -1,0 +1,302 @@
+/**
+ * 이미지 업로드 컴포넌트 스타일
+ * - ImageUpload: 단일 이미지 업로드
+ * - ImageGallery: 다중 이미지 갤러리
+ * - 라이트박스 (확대 보기)
+ */
+
+/* =============================================================================
+   단일 이미지 업로드 (ImageUpload)
+   ============================================================================= */
+
+.image-upload-zone {
+  border: 2px dashed var(--color-border);
+  border-radius: var(--radius-2);
+  padding: var(--spacing-6);
+  cursor: pointer;
+  background: var(--color-muted);
+}
+
+.image-upload-zone:hover:not(.has-image) {
+  border-color: var(--color-primary);
+  background: oklch(from var(--color-primary) l c h / 0.05);
+}
+
+.image-upload-zone.dragover {
+  border-color: var(--color-primary);
+  background: oklch(from var(--color-primary) l c h / 0.1);
+}
+
+.image-upload-zone.sm {
+  padding: var(--spacing-3);
+}
+
+.image-upload-zone.has-image {
+  padding: 0;
+  border-style: solid;
+  cursor: default;
+}
+
+/* 미리보기 영역 */
+.image-upload-preview {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-2);
+  text-align: center;
+}
+
+.image-upload-zone.has-image .image-upload-preview {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1;
+}
+
+.image-upload-zone.has-image .image-upload-preview img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: var(--radius-1);
+}
+
+/* 오버레이 */
+.image-upload-zone.has-image .image-upload-preview .image-overlay {
+  position: absolute;
+  inset: 0;
+  background: oklch(0% 0 0 / 0.5);
+  backdrop-filter: blur(2px);
+  border-radius: var(--radius-1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-2);
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* PC: hover로 오버레이 표시 */
+@media (hover: hover) {
+  .image-upload-zone.has-image .image-upload-preview:hover .image-overlay {
+    opacity: 1;
+    pointer-events: auto;
+  }
+}
+
+/* 모바일: 클릭 토글로 오버레이 표시 */
+@media (hover: none) {
+  .image-upload-zone.has-image .image-upload-preview.active .image-overlay {
+    opacity: 1;
+    pointer-events: auto;
+  }
+}
+
+/* 업로드 아이콘 */
+.image-upload-icon {
+  width: 32px;
+  height: 32px;
+  color: var(--color-muted-foreground);
+}
+
+.image-upload-icon.sm {
+  width: 20px;
+  height: 20px;
+}
+
+/* 업로드 텍스트 */
+.image-upload-text {
+  font-size: var(--text-sm);
+  color: var(--color-muted-foreground);
+  font-weight: 500;
+}
+
+.image-upload-text.sm {
+  font-size: var(--text-xs);
+}
+
+/* 업로드 힌트 */
+.image-upload-hint {
+  font-size: var(--text-xs);
+  color: var(--color-muted-foreground);
+  opacity: 0.7;
+}
+
+/* =============================================================================
+   다중 이미지 갤러리 (ImageGallery)
+   ============================================================================= */
+
+/* 그리드 레이아웃 */
+.image-gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+  gap: var(--spacing-2);
+  margin-bottom: var(--spacing-2);
+}
+
+/* 이미지 아이템 */
+.image-gallery-item {
+  position: relative;
+  aspect-ratio: 1;
+  border-radius: var(--radius-2);
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  background: var(--color-muted);
+}
+
+.image-gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* 오버레이 */
+.image-gallery-item .image-overlay {
+  position: absolute;
+  inset: 0;
+  background: oklch(0% 0 0 / 0.5);
+  backdrop-filter: blur(2px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-1);
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* PC: hover로 오버레이 표시 */
+@media (hover: hover) {
+  .image-gallery-item:hover .image-overlay {
+    opacity: 1;
+    pointer-events: auto;
+  }
+}
+
+/* 모바일: 클릭 토글로 오버레이 표시 */
+@media (hover: none) {
+  .image-gallery-item.active .image-overlay {
+    opacity: 1;
+    pointer-events: auto;
+  }
+}
+
+/* 갤러리 아이템용 버튼 크기 조정 */
+.image-gallery-item .image-action-btn {
+  width: 32px;
+  height: 32px;
+  box-shadow: 0 2px 6px var(--color-shadow-2);
+}
+
+/* 이미지 추가 버튼 */
+.image-gallery-add {
+  aspect-ratio: 1;
+  border-radius: var(--radius-2);
+  border: 2px dashed var(--color-border);
+  background: var(--color-muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.image-gallery-add:hover {
+  border-color: var(--color-primary);
+  background: oklch(from var(--color-primary) l c h / 0.05);
+}
+
+.image-gallery-add.dragover {
+  border-color: var(--color-primary);
+  background: oklch(from var(--color-primary) l c h / 0.1);
+}
+
+.image-gallery-add-icon {
+  width: 24px;
+  height: 24px;
+  color: var(--color-muted-foreground);
+}
+
+.image-gallery-add:hover .image-gallery-add-icon {
+  color: var(--color-primary);
+}
+
+/* =============================================================================
+   공통 액션 버튼
+   ============================================================================= */
+
+.image-action-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-full);
+  background: var(--color-background);
+  box-shadow: 0 2px 8px var(--color-shadow-2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border: none;
+  color: var(--color-foreground);
+}
+
+.image-action-btn:hover {
+  transform: scale(1.1);
+}
+
+.image-action-btn.delete:hover {
+  background: var(--color-destructive);
+  color: var(--color-destructive-foreground);
+}
+
+.image-action-btn.view:hover,
+.image-action-btn.change:hover {
+  background: var(--color-primary);
+  color: var(--color-primary-foreground);
+}
+
+/* =============================================================================
+   라이트박스 (확대 보기)
+   ============================================================================= */
+
+.image-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: oklch(0% 0 0 / 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.image-lightbox.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.image-lightbox img {
+  max-width: 90vw;
+  max-height: 90vh;
+  object-fit: contain;
+  border-radius: var(--radius-2);
+  box-shadow: 0 8px 32px oklch(0% 0 0 / 0.5);
+}
+
+.image-lightbox .lightbox-close {
+  position: absolute;
+  top: var(--spacing-4);
+  right: var(--spacing-4);
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-full);
+  background: var(--color-background);
+  box-shadow: 0 2px 8px var(--color-shadow-2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border: none;
+  color: var(--color-foreground);
+}
+
+.image-lightbox .lightbox-close:hover {
+  transform: scale(1.1);
+}

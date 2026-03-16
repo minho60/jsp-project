@@ -1,0 +1,135 @@
+* {
+    box-sizing: border-box;
+}
+:root {
+    scroll-behavior: smooth;
+}
+main {
+  padding-top: 40px;
+  padding-bottom: 60px;
+  background: rgb(246, 246, 246);
+}
+#cart .inner {
+    max-width: 1260px;
+    margin: 0 auto;
+}
+#cart hr {
+    border: none;
+    height: 1px;
+    background-color: #e5e5e5;
+}
+
+#cart .inner,
+#cart .inner a {
+    color: #686767;
+    font-size: 0.75rem;
+}
+
+#cart .product {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-top: 40px;
+}
+#cart .product p:first-of-type {
+    margin-bottom: 20px;
+    font-size: 1.6rem;
+    font-weight: 500;
+    color: #222;
+}
+#cart .product p:last-of-type {
+    font-size: 1rem;
+    font-weight: 350;
+    color: #D1D1D1;
+    display: flex;
+    align-items: baseline;
+}
+#cart .product p span {
+    color: #E65548;
+    font-weight: bold;
+}
+#cart .product img {
+    margin: 0 16px;
+}
+#cart .inner .box {
+    text-align: center;
+    width: 100%;
+    font-weight: 500;
+    padding: 56px 0;
+    margin-bottom: 20px;
+    background: #fff;
+    border-radius: 16px;
+    border: 2px solid #D6D6D6;
+}
+#cart .inner .continue {
+    text-decoration: underline;
+    text-underline-offset: 4px;
+}
+#cart .price {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    text-align: right;
+    background: #fff;
+    border-radius: 16px;
+    margin-top: 30px;
+    padding: 20px 40px 20px 0;
+    border: 2px solid #D6D6D6;
+}
+#cart .price img {
+    width: 22px;
+    height: 22px;
+    margin: 0 16px;
+}
+#cart .price p {
+    font-size: 1.1rem;
+    color: #333;
+}
+#cart .price span {
+    color: #E65548;
+}
+#cart .btn {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+#cart .btn_left,
+#cart .btn_right {
+    display: flex;
+}
+#cart .btn_left a {
+    padding: 8px 24px;
+    margin-right: 6px;
+    background: #fff;
+    border: 1px solid #D6D6D6;
+    border-radius: 10px;
+    font-size: 0.7rem;
+    color: #333;
+}
+#cart .btn_left a:hover {
+    color: #666;
+}
+#cart .btn_right a {
+    padding: 16px 40px;
+    margin-top: 16px;
+    margin-left: 6px;
+    background: #fff;
+    border: 1px solid #D6D6D6;
+    border-radius: 15px;
+    color: #333;
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+#cart .btn_right a:hover {
+    color: #666;
+}
+#cart .btn_right a:last-of-type {
+    background: #E65548;
+    color: #fff;
+}
+#cart .btn_right a:last-of-type:hover {
+    background: rgb(240, 36, 18);
+    color: #fff;
+}
+

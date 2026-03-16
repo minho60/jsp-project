@@ -1,0 +1,123 @@
+@charset "UTF-8";
+
+/* reset */
+body,
+p,
+h3,
+h2,
+h1 {
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+  color: #000;
+}
+
+ul,
+li {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+/* location */
+ .location-wrap {
+  margin-bottom: 40px;
+  border-bottom: 1px solid #e83828;
+}
+ .location-con {
+  width: 1260px;
+  margin: 0 323px;
+  padding: 20px 0;
+  color: #787878;
+}
+ .location-con a {
+  color: #787878;
+}
+
+ .service-container {
+  display: flex;
+  width: 1260px;
+  margin: 0 323px;
+  gap: 100px;
+}
+
+/* side-box */
+
+.side-box-t {
+  margin-bottom: 150px;
+}
+
+.side-box-menu {
+  border-top: 2px solid #e83828;
+  padding: 20px 10px 20px 0;
+}
+
+
+.side-box-menu li {
+  margin-top: 15px;
+  font-size: 14px;
+}
+
+.side-box-menu li a {
+  color: #787878;
+}
+.side-box-menu .active{
+    color: #e83828;
+}
+
+
+.side-box-menu li a:hover {
+  color: #e83828;
+}
+
+.side-box-b div {
+  margin-bottom: 50px;
+  gap: 5px;
+}
+
+.side-info {
+  display: flex;
+  flex-direction: column;
+  padding-top: 20px;
+  border-top: 2px solid #e83828;
+  color: #787878;
+  font-size: 12px;
+}
+
+.side-box-b strong {
+  color: #e83828;
+  font-size: 15px;
+}
+
+/* 수정 가능한 부분*/
+
+
+/* 페이지네이션 */
+.service-pagination {
+  width: 1020px;
+  display: flex;
+  justify-content: center;
+
+}
+.service-pagination ul {
+  display: flex;
+  gap: 20px;
+}
+.service-pagination ul li {
+  padding: 10px;
+}
+ .service-pagination li a {
+  display: flex;  
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  color: #787878;
+  font-size: 14px;
+}
+.service-pagination li.service-active a {
+  background: #7a7d81;
+  color: #fff;
+  border-radius: 50%;
+}
