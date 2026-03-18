@@ -108,7 +108,7 @@ td {
 }
 #qa-main .cha-txt button{
  width: 150px;
- background-image: url("/dodram-jsp/assets/img/service/icon_reset.png");
+ background-image: url("../../../assets/img/service/icon_reset.png");
  background-repeat: no-repeat;
  background-position: 7%;
  border: 1px solid #787878;

@@ -28,7 +28,7 @@
     background: #E83828;
     color: #FFFFFF;
     position: relative;
-    background-image: url("/dodram-jsp/assets/img/main/main_title_icon_gift.png");
+    background-image: url("../../../assets/img/main/main_title_icon_gift.png");
     background-repeat: no-repeat;
     background-size: 120px auto;
     background-position: 10% 40%;
@@ -38,7 +38,7 @@
     background: #FFCF4B;
     color: #000;
     position: relative;
-    background-image: url("/dodram-jsp/assets/img/main/main_title_icon_recommend.png");
+    background-image: url("../../../assets/img/main/main_title_icon_recommend.png");
     background-repeat: no-repeat;
     background-size: 120px auto;
     background-position: 10% 40%;
@@ -48,7 +48,7 @@
     background: #CCDEFF;
     color: #030B39;
     position: relative;
-    background-image: url("/dodram-jsp/assets/img/service/faq-list.png");
+    background-image: url("../../../assets/img/service/faq-list.png");
     background-repeat: no-repeat;
     background-size: 110px auto;
     background-position: 10% 40%;
@@ -82,7 +82,7 @@
     justify-content: center;
     background: #FEEADF;
     position: relative;
-    background-image: url("/dodram-jsp/assets/img/service/faq-list2.svg");
+    background-image: url("../../../assets/img/service/faq-list2.svg");
     background-repeat: no-repeat;
     background-size: 110px auto;
     background-position: 30% 40%;

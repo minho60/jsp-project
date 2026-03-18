@@ -56,7 +56,7 @@
     width: 18px;
     height: 18px;
     display: inline-block;
-    background-image: url("/dodram-jsp/assets/img/service/icon_qna_q.png");
+    background-image: url("../../../assets/img/service/icon_qna_q.png");
     background-repeat: no-repeat;
     background-size: contain;
     margin-right: 10px;
@@ -68,7 +68,7 @@
     width: 18px;
     height: 18px;
     display: inline-block;
-    background-image: url("/dodram-jsp/assets/img/service/icon_qna_a.png");
+    background-image: url("../../../assets/img/service/icon_qna_a.png");
     background-repeat: no-repeat;
     background-size: contain;
     margin-right: 10px;
