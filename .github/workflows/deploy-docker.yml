@@ -1,0 +1,67 @@
+name: Deploy to Oracle Cloud (Docker)
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. 소스코드 체크아웃
+      - name: Checkout source
+        uses: actions/checkout@v4
+
+      # 2. SSH 키 설정
+      - name: Setup SSH key
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.OCI_SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh-keyscan -H ${{ secrets.OCI_HOST }} >> ~/.ssh/known_hosts 2>/dev/null
+
+      # 3. 소스코드를 서버로 전송 (rsync)
+      - name: Sync source to server
+        run: |
+          rsync -avz --delete \
+            --exclude='.git' \
+            --exclude='.github' \
+            --exclude='.settings' \
+            --exclude='.classpath' \
+            --exclude='.project' \
+            --exclude='*.md' \
+            --exclude='sql/' \
+            --exclude='build/' \
+            --exclude='.env' \
+            ./ ${{ secrets.OCI_USER }}@${{ secrets.OCI_HOST }}:~/dodram-jsp/
+
+      # 4. 서버에서 Docker 빌드 및 배포
+      - name: Build and deploy with Docker
+        run: |
+          ssh -o StrictHostKeyChecking=no \
+            ${{ secrets.OCI_USER }}@${{ secrets.OCI_HOST }} << 'DEPLOY_SCRIPT'
+
+            cd ~/dodram-jsp
+
+            echo "=== Building and deploying with Docker Compose ==="
+
+            # Docker Compose로 빌드 & 재시작
+            docker compose up -d --build
+
+            # 정상 기동 확인 (최대 60초 대기)
+            echo "=== Waiting for services to be healthy ==="
+            for i in $(seq 1 12); do
+              if curl -s -o /dev/null -w "%{http_code}" http://localhost | grep -q "200\|302"; then
+                echo "=== Deploy complete! ==="
+                exit 0
+              fi
+              echo "Waiting... ($i/12)"
+              sleep 5
+            done
+
+            echo "=== Warning: Health check timeout, but containers may still be starting ==="
+            docker compose ps
+            docker compose logs --tail=50
+
+          DEPLOY_SCRIPT

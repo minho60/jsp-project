@@ -1,1 +1,8 @@
-/.metadata/
+/build/
+/.dev/
+local.env
+.env
+
+# macOS
+.DS_Store
+/.apt_generated/

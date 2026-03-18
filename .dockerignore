@@ -1,0 +1,13 @@
+.git
+.github
+.settings
+.classpath
+.project
+.gitignore
+.gitattributes
+.env
+.env.example
+*.md
+sql/
+build/
+docker/

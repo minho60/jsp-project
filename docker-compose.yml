@@ -1,0 +1,67 @@
+services:
+  # ── Tomcat (애플리케이션) ─────────────────────────
+  tomcat:
+    build: .
+    container_name: dodram-tomcat
+    environment:
+      - JDBC_URL=jdbc:mysql://mysql:3306/${DB_NAME}?serverTimezone=UTC&characterEncoding=UTF-8&useSSL=false&allowPublicKeyRetrieval=true
+      - JDBC_USERNAME=${DB_USER}
+      - JDBC_PASSWORD=${DB_PASSWORD}
+    expose:
+      - "8080"
+    networks:
+      - nginx-proxy
+      - dodram-internal
+    depends_on:
+      mysql:
+        condition: service_healthy
+    restart: unless-stopped
+
+  # ── MySQL ────────────────────────────────────────
+  mysql:
+    image: mysql:8
+    container_name: dodram-mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${DB_NAME}
+      MYSQL_USER: ${DB_USER}
+      MYSQL_PASSWORD: ${DB_PASSWORD}
+    volumes:
+      - mysql_data:/var/lib/mysql
+    expose:
+      - "3306"
+    networks:
+      - dodram-internal
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
+
+  # ── phpMyAdmin ───────────────────────────────────
+  phpmyadmin:
+    image: phpmyadmin:latest
+    container_name: dodram-phpmyadmin
+    environment:
+      PMA_HOST: mysql
+      PMA_PORT: 3306
+    expose:
+      - "80"
+    networks:
+      - nginx-proxy
+      - dodram-internal
+    depends_on:
+      - mysql
+    restart: unless-stopped
+
+volumes:
+  mysql_data:
+
+networks:
+  # Nginx 프록시와 공유하는 외부 네트워크
+  nginx-proxy:
+    external: true
+  # 프로젝트 내부 전용 네트워크
+  dodram-internal:
+    driver: bridge
