@@ -1,44 +1,31 @@
-# ============================================================
-# Stage 1: Build — WAR 파일 생성
-# ============================================================
-FROM eclipse-temurin:17-jdk AS builder
+# 1. Build Stage (빌드 단계)
+# JDK 17이 포함된 Gradle 이미지를 사용합니다.
+FROM gradle:8.5-jdk17 AS build
+WORKDIR /app
 
-WORKDIR /build
+# 라이브러리 의존성 캐싱을 위해 설정 파일 먼저 복사
+COPY build.gradle settings.gradle ./
+# 소스 코드 및 웹 리소스(WEB-INF 등) 복사
+COPY src ./src
 
-# Tomcat 9 Servlet API (컴파일용)
-RUN mkdir -p /tmp/tomcat-lib && \
-    curl -sL "https://repo1.maven.org/maven2/javax/servlet/javax.servlet-api/4.0.1/javax.servlet-api-4.0.1.jar" \
-      -o /tmp/tomcat-lib/javax.servlet-api-4.0.1.jar && \
-    curl -sL "https://repo1.maven.org/maven2/javax/servlet/jsp/javax.servlet.jsp-api/2.3.3/javax.servlet.jsp-api-2.3.3.jar" \
-      -o /tmp/tomcat-lib/javax.servlet.jsp-api-2.3.3.jar
+# WAR 파일 빌드 (테스트 제외)
+RUN gradle clean war -x test --no-daemon
 
-# 소스 복사
-COPY src/ src/
+# 2. Run Stage (실행 단계)
+# 톰캣 9.0과 JDK 17이 설치된 경량 이미지를 사용합니다.
+FROM tomcat:9.0-jdk17-corretto
+WORKDIR /usr/local/tomcat
 
-# Java 컴파일
-RUN mkdir -p classes && \
-    CP=$(find src/main/webapp/WEB-INF/lib -name '*.jar' | tr '\n' ':') && \
-    CP="${CP}$(find /tmp/tomcat-lib -name '*.jar' | tr '\n' ':')" && \
-    find src/main/java -name '*.java' > /tmp/sources.txt && \
-    javac -encoding UTF-8 -d classes -cp "$CP" @/tmp/sources.txt
+# 기존 톰캣 기본 앱들 삭제 (선택 사항: 보안 및 깔끔한 환경을 위함)
+RUN rm -rf webapps/*
 
-# WAR 디렉토리 구성
-RUN mkdir -p /war && \
-    cp -r src/main/webapp/* /war/ && \
-    mkdir -p /war/WEB-INF/classes && \
-    cp -r classes/* /war/WEB-INF/classes/
+# 빌드 단계에서 생성된 .war 파일을 톰캣의 ROOT.war로 복사
+# 이렇게 하면 접속 시 경로 뒤에 프로젝트명을 붙이지 않고 바로 (/) 접속이 가능합니다.
+COPY --from=build /app/build/libs/*.war webapps/ROOT.war
 
-# ============================================================
-# Stage 2: Runtime — Tomcat 9 + JDK 17
-# ============================================================
-FROM tomcat:9-jdk17-temurin
-
-# 기본 ROOT 앱 제거
-RUN rm -rf /usr/local/tomcat/webapps/ROOT
-
-# 빌드 결과물을 ROOT로 배포
-COPY --from=builder /war /usr/local/tomcat/webapps/ROOT
-
+# MySQL 8.0 연결을 위한 타임존 및 환경 설정
+ENV TZ=Asia/Seoul
 EXPOSE 8080
 
+# 톰캣 실행
 CMD ["catalina.sh", "run"]
