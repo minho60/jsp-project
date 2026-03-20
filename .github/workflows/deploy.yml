@@ -1,58 +1,44 @@
-name: Deploy JSP Project to AWS EC2
+name: Deploy with Docker to EC2
 
 on:
   push:
-    branches: [ "main" ] # 배포할 브랜치 설정
+    branches: [ "main" ]
 
 jobs:
-  build-and-deploy:
+  build-and-push:
     runs-on: ubuntu-latest
-
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v4
+      - name: Checkout code
+        uses: actions/checkout@v4
 
-    - name: Set up JDK 17
-      uses: actions/setup-java@v4
-      with:
-        java-version: '17'
-        distribution: 'temurin'
+      - name: Login to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
 
-    # src/main/webapp 구조를 기준으로 WAR 빌드
-    - name: Build WAR File
-      run: |
-        mkdir -p dist
-        # 1. 컴파일된 클래스 파일들이 WEB-INF/classes에 있다고 가정하거나, 
-        # 직접 컴파일이 필요하면 javac 단계가 추가되어야 합니다.
-        # 여기서는 webapp 폴더의 내용을 바탕으로 ROOT.war를 생성합니다.
-        cd src/main/webapp
-        jar -cvf ../../../dist/ROOT.war *
-        cd ../../..
+      - name: Build and push Docker image
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          push: true
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/my-jsp-app:latest
 
-    - name: Transfer WAR to EC2
-      uses: appleboy/scp-action@master
-      with:
-        host: ${{ secrets.EC2_HOST }}
-        username: ubuntu
-        key: ${{ secrets.EC2_SSH_KEY }}
-        source: "dist/ROOT.war"
-        target: "/home/ubuntu/"
-        strip_components: 1
-
-    - name: Deploy to Tomcat 9
-      uses: appleboy/ssh-action@master
-      with:
-        host: ${{ secrets.EC2_HOST }}
-        username: ubuntu
-        key: ${{ secrets.EC2_SSH_KEY }}
-        script: |
-          # 1. 기존 배포된 ROOT 디렉토리 및 WAR 삭제
-          sudo rm -rf /var/lib/tomcat9/webapps/ROOT
-          sudo rm -f /var/lib/tomcat9/webapps/ROOT.war
-          
-          # 2. 새로운 WAR 파일 이동
-          sudo mv /home/ubuntu/ROOT.war /var/lib/tomcat9/webapps/
-          
-          # 3. 소유권 변경 및 톰캣 재시작
-          sudo chown tomcat:tomcat /var/lib/tomcat9/webapps/ROOT.war
-          sudo systemctl restart tomcat9
+  deploy:
+    needs: build-and-push
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to EC2 via SSH
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.EC2_HOST }}
+          username: ubuntu
+          key: ${{ secrets.EC2_SSH_KEY }}
+          script: |
+            # 기존 컨테이너 중지 및 삭제
+            sudo docker stop my-app || true
+            sudo docker rm my-app || true
+            sudo docker pull ${{ secrets.DOCKERHUB_USERNAME }}/my-jsp-app:latest
+            
+            # 새 컨테이너 실행 (MySQL 8 연결을 위해 네트워크/환경변수 설정 권장)
+            sudo docker run -d --name my-app -p 80:8080 ${{ secrets.DOCKERHUB_USERNAME }}/my-jsp-app:latest
