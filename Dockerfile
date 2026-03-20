@@ -1,30 +1,31 @@
-# 1. Build Stage (빌드 단계)
-# JDK 17이 포함된 Gradle 이미지를 사용합니다.
+# 1. Build Stage: Gradle을 사용하여 WAR 파일 생성
 FROM gradle:8.5-jdk17 AS build
 WORKDIR /app
 
-# 라이브러리 의존성 캐싱을 위해 설정 파일 먼저 복사
-COPY build.gradle settings.gradle ./
-# 소스 코드 및 웹 리소스(WEB-INF 등) 복사
-COPY src ./src
+# 빌드 캐시 효율을 위해 설정 파일들을 먼저 복사
+# 파일이 없을 경우를 대비해 와일드카드(*)를 사용합니다.
+COPY build.gradle* settings.gradle* /app/
+COPY src /app/src
 
-# WAR 파일 빌드 (테스트 제외)
+# 순수 JSP/Servlet 프로젝트를 WAR로 빌드 (테스트는 제외)
+# 만약 권한 문제가 발생하면 RUN chmod +x gradlew 를 추가할 수 있습니다.
 RUN gradle clean war -x test --no-daemon
 
-# 2. Run Stage (실행 단계)
-# 톰캣 9.0과 JDK 17이 설치된 경량 이미지를 사용합니다.
+# 2. Run Stage: 톰캣에 빌드된 WAR 배포
 FROM tomcat:9.0-jdk17-corretto
 WORKDIR /usr/local/tomcat
 
-# 기존 톰캣 기본 앱들 삭제 (선택 사항: 보안 및 깔끔한 환경을 위함)
+# 톰캣 기본 제공 앱(기본 메인화면 등) 삭제 (보안 및 경로 충돌 방지)
 RUN rm -rf webapps/*
 
 # 빌드 단계에서 생성된 .war 파일을 톰캣의 ROOT.war로 복사
-# 이렇게 하면 접속 시 경로 뒤에 프로젝트명을 붙이지 않고 바로 (/) 접속이 가능합니다.
+# 이렇게 하면 접속 시 주소 뒤에 파일명 없이 바로 (/) 접속 가능합니다.
 COPY --from=build /app/build/libs/*.war webapps/ROOT.war
 
-# MySQL 8.0 연결을 위한 타임존 및 환경 설정
+# 환경 설정
 ENV TZ=Asia/Seoul
+
+# 톰캣의 기본 포트 8080 노출
 EXPOSE 8080
 
 # 톰캣 실행
