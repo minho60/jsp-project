@@ -1,4 +1,4 @@
-name: Deploy Pure JSP Project (webapp)
+name: Deploy Pure JSP Project
 
 on:
   push:
@@ -34,19 +34,15 @@ jobs:
           username: ubuntu
           key: ${{ secrets.EC2_SSH_KEY }}
           script: |
-            # 기존 컨테이너 중지 및 삭제
             docker stop subwaykr || true
             docker rm subwaykr || true
-            
-            # 최신 이미지 Pull
             docker pull ${{ secrets.DOCKERHUB_USERNAME }}/subwaykr:latest
             
-            # 컨테이너 실행 (80포트로 접속하면 8080으로 연결)
+            # 컨테이너 실행
             docker run -d --name subwaykr -p 80:8080 \
               -e DB_URL='${{ secrets.DB_URL }}' \
               -e DB_USERNAME='${{ secrets.DB_USERNAME }}' \
               -e DB_PASSWORD='${{ secrets.DB_PASSWORD }}' \
               ${{ secrets.DOCKERHUB_USERNAME }}/subwaykr:latest
             
-            # 불필요한 이미지 정리
             docker image prune -f
